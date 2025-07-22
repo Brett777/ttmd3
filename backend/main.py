@@ -2150,12 +2150,9 @@ async def clear_job_progress(job_id: str, session_id: str):
 # IMPORTANT: This MUST be the last route mounted to avoid interfering with API endpoints
 # The React app's built files are served from the frontend/dist directory
 # The html=True parameter enables SPA routing (serves index.html for non-API routes)
-if os.path.isdir("frontend/dist"):
-    app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
-
 @app.post("/api/log-error")
 async def log_error(request: dict):
-    print('Received log request from frontend')
+    print("Received log request from frontend")
     error_message = request.get("error", "No error message provided")
     sql = request.get("sql", "No SQL provided")
     context = request.get("context", "No context provided")
@@ -2166,3 +2163,6 @@ async def log_error(request: dict):
     return {"status": "logged"}
 
 print("[STARTUP] /api/log-error endpoint registered")
+
+if os.path.isdir("frontend/dist"):
+    app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
