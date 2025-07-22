@@ -15,7 +15,7 @@ yfinance
 pytz
 
 # RAG-Ultra SDK and document processing
-rag-ultra
+#rag-ultra
 PyPDF2
 pymupdf
 python-docx
