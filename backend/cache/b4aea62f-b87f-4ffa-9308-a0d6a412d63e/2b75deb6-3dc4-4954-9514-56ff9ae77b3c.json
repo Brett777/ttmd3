@@ -1,0 +1,640 @@
+{
+  "id": "2b75deb6-3dc4-4954-9514-56ff9ae77b3c",
+  "documentId": "2b75deb6-3dc4-4954-9514-56ff9ae77b3c",
+  "filename": "easton grade 8 report card.pdf",
+  "status": "completed",
+  "progress": {
+    "stage": "Finalizing...",
+    "current": 1,
+    "total": 1,
+    "message": "Finalizing... (1/1)"
+  },
+  "logs": [
+    "2025-06-13 00:22:21 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\b4aea62f-b87f-4ffa-9308-a0d6a412d63e\\2b75deb6-3dc4-4954-9514-56ff9ae77b3c.json",
+    "2025-06-13 00:22:21 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\b4aea62f-b87f-4ffa-9308-a0d6a412d63e\\2b75deb6-3dc4-4954-9514-56ff9ae77b3c.json",
+    "2025-06-13 00:22:22 - Started processing easton grade 8 report card.pdf",
+    "2025-06-13 00:22:22 - Extracting text from document... (0/100)",
+    "2025-06-13 00:22:22 - Extracted text from 4 pages",
+    "2025-06-13 00:22:22 - Converting pages to images... (0/4)",
+    "2025-06-13 00:22:22 - Could not convert pages to images: convert_document_pages_to_images() got an unexpected keyword argument 'callback'. Continuing without images.",
+    "2025-06-13 00:22:22 - Generating page metadata... (0/4)",
+    "2025-06-13 00:22:36 - Generating page metadata... (2/4)",
+    "2025-06-13 00:22:39 - Generating page metadata... (3/4)",
+    "2025-06-13 00:22:39 - Generating page metadata... (5/4)",
+    "2025-06-13 00:22:40 - Generating page metadata... (4/4)",
+    "2025-06-13 00:22:40 - Generated metadata for 4 pages",
+    "2025-06-13 00:22:40 - Extracting document details... (0/1)",
+    "2025-06-13 00:22:40 - Extracting document details... (1/1)",
+    "2025-06-13 00:22:40 - Creating document summary... (0/1)",
+    "2025-06-13 00:22:54 - Creating document summary... (1/1)",
+    "2025-06-13 00:22:54 - Generated document summary",
+    "2025-06-13 00:22:54 - Finalizing... (0/1)",
+    "2025-06-13 00:22:54 - Finalizing... (1/1)",
+    "2025-06-13 00:22:54 - Processing completed successfully",
+    "2025-06-13 00:22:54 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\b4aea62f-b87f-4ffa-9308-a0d6a412d63e\\2b75deb6-3dc4-4954-9514-56ff9ae77b3c.json",
+    "2025-06-13 00:22:54 - Cleaned up temporary file: C:\\Users\\BRETTO~1\\AppData\\Local\\Temp\\tmphhpmxwar.pdf"
+  ],
+  "startTime": "2025-06-13T00:22:21.989361",
+  "endTime": "2025-06-13T00:22:54.433910",
+  "error": null,
+  "metadata": {
+    "document_details": {
+      "filename": "easton grade 8 report card.pdf",
+      "file_type": "pdf",
+      "size_kb": 145.142578125,
+      "last_modified": 1749788541.9923632,
+      "total_pages": 4,
+      "title": "Easton Grade 8 Report Card",
+      "language": "en",
+      "author": "Unknown",
+      "date": "6/26/2024"
+    },
+    "document_summary": {
+      "short_summary": "The document is an academic report for Easton David Olmstead, an eighth-grade student at Goulbourn M.S. It outlines his attendance, learning skills, subject performance, and strengths, along with areas for improvement. The report emphasizes Easton's positive attitude, commitment to responsibilities, and his participation in school activities.",
+      "detailed_summary": "This document serves as a comprehensive academic report for Easton David Olmstead, a student in Grade 8 at Goulbourn M.S., which is part of the Ottawa-Carleton District School Board. It provides detailed insights into Easton's attendance record, highlighting that he was absent for 14 days out of a total of 24, along with instances of lateness. The report also includes information about his learning skills and work habits, where he has generally performed well, showing strengths in responsibility, initiative, organization, and collaboration, although there are areas marked as satisfactory that indicate room for improvement.\n\nThe document further details Easton's strengths, such as his good performance during the second term, ability to meet academic challenges, and a positive influence in group settings. These aspects are crucial as they reflect not only his academic capabilities but also his social interactions within the school environment. The report also lists specific next steps for improvement, urging Easton to seek support when struggling with material and to manage deadlines more effectively.\n\nEaston's subject performance is broken down into various areas, including Language, French, Mathematics, Science, Health and Physical Education, and The Arts. He received commendable marks, particularly in Language and Arts, indicating strong comprehension and artistic abilities. The comments from teachers highlight his effective reading, curiosity in learning, and successful participation in extracurricular activities like the school musical, which showcases his well-rounded development.\n\nOverall, this document is important as it not only tracks Easton's academic progress but also provides a holistic view of his growth as a student. It emphasizes the significance of balancing academic skills with personal development and social participation, which are vital for a student's overall success in school and beyond.",
+      "main_topics": [
+        "Student Information",
+        "Attendance Record",
+        "Learning Skills and Work Habits",
+        "Strengths and Areas for Improvement",
+        "Subject Performance",
+        "Extracurricular Activities",
+        "Teacher's Comments",
+        "Next Steps for Improvement",
+        "School Information"
+      ],
+      "key_insights": [
+        "Easton has shown a strong commitment to his academic responsibilities.",
+        "He has a positive attitude and curiosity towards learning.",
+        "There is a need for Easton to seek help when material is unclear.",
+        "Easton excels in Language and Arts subjects, demonstrating creativity and comprehension.",
+        "His attendance record shows room for improvement, particularly in minimizing absences and lateness.",
+        "Participation in extracurricular activities, such as the school musical, enhances his social skills."
+      ],
+      "total_token_count": 3920,
+      "total_pages": 4
+    },
+    "pages": {
+      "1": {
+        "one_sentence_summary": "This report card details Easton Olmstead's academic performance and personal development in Grade 8 at Goulbourn M.S.",
+        "full_summary": {
+          "Student Information": {
+            "Name": "Easton David Olmstead",
+            "OEN": "735-011-272",
+            "Grade": "08"
+          },
+          "Attendance": {
+            "Days Absent": 14,
+            "Total Days Absent": 24,
+            "Times Late": 2,
+            "Total Times Late": 10
+          },
+          "School Information": {
+            "Board": "Ottawa-Carleton District School Board",
+            "School": "Goulbourn M.S.",
+            "Principal": "Hanif Jamal",
+            "School Address": "2176 Huntley Road, Stittsville, ON K2S1B8",
+            "Contact": "613-836-1312"
+          },
+          "Learning Skills and Work Habits": {
+            "Responsibility": "G",
+            "Independent Work": "S",
+            "Initiative": "G",
+            "Organization": "G",
+            "Collaboration": "G",
+            "Self-Regulation": "S"
+          },
+          "Strengths": [
+            "Good performance in the second term with a positive attitude.",
+            "Ability to meet academic challenges and deadlines.",
+            "Capability to independently monitor and revise plans.",
+            "Positive influence in group settings."
+          ],
+          "Next Steps": [
+            "Seek support when struggling with material.",
+            "Stay organized and manage deadlines."
+          ],
+          "Teacher's Note": "Wishing Easton all the best in Grade 9, highlighting his participation in the school musical and leadership in a club."
+        },
+        "topics": [
+          "Student Report Card",
+          "Academic Performance",
+          "Learning Skills",
+          "Attendance",
+          "Grade 8 Education",
+          "Teacher Feedback",
+          "Ottawa-Carleton District School Board",
+          "Goulbourn M.S.",
+          "Personal Development",
+          "Next Steps for Improvement"
+        ],
+        "keywords": [
+          "Easton Olmstead",
+          "Grade 8",
+          "Report Card",
+          "Attendance",
+          "Learning Skills",
+          "Responsibility",
+          "Collaboration",
+          "Organization",
+          "Teacher Feedback",
+          "Next Steps",
+          "August 2024"
+        ],
+        "key_information": {
+          "Attendance Details": {
+            "Days Absent": 14,
+            "Total Days Absent": 24,
+            "Times Late": 2,
+            "Total Times Late": 10
+          },
+          "Learning Skills Ratings": {
+            "Responsibility": "Good",
+            "Independent Work": "Satisfactory",
+            "Initiative": "Good",
+            "Organization": "Good",
+            "Collaboration": "Good",
+            "Self-Regulation": "Satisfactory"
+          },
+          "Next Steps": [
+            "Seek support for understanding material.",
+            "Stay organized and manage deadlines."
+          ]
+        },
+        "entities": [
+          {
+            "type": "Person",
+            "name": "Easton David Olmstead"
+          },
+          {
+            "type": "Person",
+            "name": "Alex McIntyre"
+          },
+          {
+            "type": "Person",
+            "name": "Hanif Jamal"
+          },
+          {
+            "type": "Organization",
+            "name": "Ottawa-Carleton District School Board"
+          },
+          {
+            "type": "Location",
+            "name": "Goulbourn M.S."
+          },
+          {
+            "type": "Date",
+            "name": "6/26/2024"
+          }
+        ],
+        "sentiment": "positive",
+        "acronyms": {
+          "OEN": "Ontario Education Number"
+        },
+        "chapter_or_section": "Elementary Provincial Report Card",
+        "noteworthy_sentences": [
+          "Easton has had a good second term where he continued to apply himself to his school work and rose to meet most academic challenges.",
+          "A major highlight for him was participating in the school musical and leading a successful club for the entire year.",
+          "It was a pleasure teaching you!"
+        ],
+        "token_count": 562,
+        "visual_elements": "The document contains a structured layout with sections for student information, attendance, learning skills, and teacher remarks. There are no images, charts, or tables present.",
+        "raw_text": "Ministry of Education\nElementary Provincial Report Card\nDate: 6/26/2024\nStudent: Olmstead, Easton David\nOEN: 735-011-272\nDays Absent: 14.0\nTotal Days Absent: 24.0\nGrade: 08\nTeacher: McIntyre, Alex\nTimes Late: 2\nTotal Times Late: 10\nBoard: Ottawa-Carleton District School Board\nAddress:\n133 Greenbank Road, Nepean, ON K2H6L3\nSchool: Goulbourn M.S.\nAddress:\n2176 Huntley Road\nStittsville, ON K2S1B8\nPrincipal: Jamal, Hanif\nTelephone: 6138361312\nGRADE IN SEPTEMBER\n09\nLearning Skills and Work Habits\nE \u2013 Excellent      G \u2013 Good      S \u2013 Satisfactory      N \u2013 Needs Improvement\nResponsibility\nG\nG\n \u2022 Fulfils responsibilities and commitments within the\n   learning environment.\n \u2022 Completes and submits class work, homework, and\n   assignments according to agreed-upon timelines.\n \u2022 Takes responsibility for and manages own behaviour.\nIndependent Work\nS\nG\n \u2022 Independently monitors, assesses, and revises plans\n   to complete tasks and meet goals.\n \u2022 Uses class time appropriately to complete tasks.\n \u2022 Follows instructions with minimal supervision.\nInitiative\nG\nG\n \u2022 Looks for and acts on new ideas and opportunities for learning.\n \u2022 Demonstrates the capacity for innovation and a willingness\n   to take risks.\n \u2022 Demonstrates curiosity and interest in learning.\n \u2022 Approaches new tasks with a positive attitude.\n \u2022 Recognizes and advocates appropriately for the rights\n   of self and others.\nOrganization\nG\nG\n \u2022 Devises and follows a plan and process for completing\n   work and tasks.\n \u2022 Establishes priorities and manages time to complete tasks\n   and achieve goals.\n \u2022 Identifies, gathers, evaluates, and uses information,\n   technology, and resources to complete tasks.\nCollaboration\nG\nG\n \u2022 Accepts various roles and an equitable share of work in a group.\n \u2022 Responds positively to the ideas, opinions, values, and traditions\n   of others.\n \u2022 Builds healthy peer-to-peer relationships through personal and\n   media-assisted interactions.\n \u2022 Works with others to resolve conflicts and build consensus to\n   achieve group goals.\n \u2022 Shares information, resources, and expertise, and promotes\n   critical thinking to solve problems and make decisions.\nSelf-Regulation\nS\nG\n \u2022 Sets own individual goals and monitors progress towards\n   achieving them.\n \u2022 Seeks clarification or assistance when needed.\n \u2022 Assesses and reflects critically on own strengths, needs,\n   and interests.\n \u2022 Identifies learning opportunities, choices, and strategies\n   to meet personal needs and achieve goals.\n \u2022 Perseveres and makes an effort when responding to challenges.\nStrengths/Next Steps for Improvement\nEaston has had a good second term where he continued to apply himself to his school work and rose to meet most academic challenges that\ncame his way.  Easton has demonstrated the ability to fulfill responsibilities and commitments within the learning environment. He has\nnormally submitted assignments and met deadlines. He has developed the ability to plan out his work and follow a process for completing\ntasks at a grade appropriate level. Easton is capable of independently monitoring, assessing and revising plans as required to complete their\ntasks and meet individual goals. He responds positively to the ideas, opinions, values and traditions of others. He is normally a positive\ninfluence when working with others and will resolve conflict to achieve group goals. Easton brings curiosity to the classroom each day and has\na natural interest in learning. He always approaches new tasks with a positive attitude. Easton has demonstrated the determination required\nto persevere through challenges and will make an effort to complete tasks regardless of any setbacks.\nNext Steps:\nEaston had a successful Grade 8 year and has blossomed into a confident young man. A major highlight for him was participating in the\nschool musical and leading a successful club for the entire year. Both activities required commitment and Easton showed he was up to the\ntask. Moving into Grade 9, it will be important for Easton to seek out support when he does not understand the material and ensure he never\nlets a learning gap get too big. He also will need to work to stay on top of his deadlines and stay organized with his materials.\nWishing you all the best in Grade 9, Easton! It was a pleasure teaching you! A. McIntyre\n0463E (2023/09)    \u00a9 King\u2019s Printer for Ontario, 2023\nGrades 7 and 8\nPage 1 of 4\n"
+      },
+      "2": {
+        "one_sentence_summary": "Easton Olmstead's Grade 8 report card highlights strong learning skills and positive performance across subjects.",
+        "full_summary": {
+          "Student Information": {
+            "Name": "Easton David Olmstead",
+            "OEN": "735-011-272",
+            "Grade": "08"
+          },
+          "Attendance": {
+            "Days Absent": 14,
+            "Total Days Absent": 24,
+            "Times Late": 2,
+            "Total Times Late": 10
+          },
+          "School Details": {
+            "Board": "Ottawa-Carleton District School Board",
+            "School": "Goulbourn M.S.",
+            "Principal": "Hanif Jamal",
+            "School Address": "2176 Huntley Road, Stittsville, ON K2S1B8"
+          },
+          "Learning Skills and Work Habits": {
+            "Responsibility": "Good",
+            "Independent Work": "Satisfactory",
+            "Initiative": "Good",
+            "Organization": "Good",
+            "Collaboration": "Good",
+            "Self-Regulation": "Satisfactory"
+          },
+          "Strengths": [
+            "Fulfils responsibilities and commitments.",
+            "Submits assignments and meets deadlines.",
+            "Shows curiosity and interest in learning.",
+            "Positive influence in group work."
+          ],
+          "Next Steps for Improvement": [
+            "Seek support when material is unclear.",
+            "Stay organized and manage deadlines."
+          ],
+          "Subject Performance": {
+            "Language": {
+              "Report 1": 75,
+              "Report 2": 75,
+              "Comments": "Effective reading and comprehension; good writing skills."
+            },
+            "French": {
+              "Listening": 74,
+              "Speaking": 72,
+              "Reading": 79,
+              "Writing": 67,
+              "Comments": "Encouraged to use strategies for comprehension."
+            },
+            "Mathematics": {
+              "Mark": 65,
+              "Comments": "Understands fractions and algebraic expressions."
+            },
+            "Science and Technology": {
+              "Mark": 73,
+              "Comments": "Demonstrated understanding of systems and problem-solving."
+            }
+          }
+        },
+        "topics": [
+          "Student Report Card",
+          "Education",
+          "Learning Skills",
+          "Academic Performance",
+          "Elementary School",
+          "Ottawa-Carleton District School Board",
+          "Grade 8",
+          "Attendance",
+          "Subject Performance",
+          "Next Steps for Improvement"
+        ],
+        "keywords": [
+          "Easton Olmstead",
+          "Grade 8",
+          "Report Card",
+          "Attendance",
+          "Learning Skills",
+          "Mathematics",
+          "Science",
+          "Language",
+          "French",
+          "Collaboration",
+          "Responsibility"
+        ],
+        "key_information": {
+          "Attendance": {
+            "Days Absent": 14,
+            "Total Days Absent": 24,
+            "Times Late": 2,
+            "Total Times Late": 10
+          },
+          "Subject Marks": {
+            "Language": 75,
+            "French": 74,
+            "Mathematics": 65,
+            "Science": 73
+          },
+          "Principal": "Hanif Jamal",
+          "Teacher": "Alex McIntyre"
+        },
+        "entities": [
+          {
+            "type": "Person",
+            "name": "Easton David Olmstead"
+          },
+          {
+            "type": "Person",
+            "name": "Alex McIntyre"
+          },
+          {
+            "type": "Person",
+            "name": "Hanif Jamal"
+          },
+          {
+            "type": "Organization",
+            "name": "Ottawa-Carleton District School Board"
+          },
+          {
+            "type": "Location",
+            "name": "Goulbourn M.S."
+          },
+          {
+            "type": "Date",
+            "name": "6/26/2024"
+          }
+        ],
+        "sentiment": "positive",
+        "acronyms": {
+          "OEN": "Ontario Education Number",
+          "ESL": "English as a Second Language",
+          "IEP": "Individual Education Plan",
+          "TUSC": "The Ultimate School Challenge"
+        },
+        "chapter_or_section": null,
+        "noteworthy_sentences": [
+          "Easton has had a good second term where he continued to apply himself to his school work and rose to meet most academic challenges.",
+          "A major highlight for him was participating in the school musical and leading a successful club for the entire year.",
+          "Wishing you all the best in Grade 9, Easton! It was a pleasure teaching you!"
+        ],
+        "token_count": 689,
+        "visual_elements": "The report card includes tables summarizing subject performance, attendance records, and learning skills assessments, but no images or charts.",
+        "raw_text": "Student: Olmstead, Easton David\nOEN: 735-011-272\nGrade: 08\nSubject\nReport 1\n% Mark\nMedian\nReport 2\n% Mark\nMedian\nStrengths/Next Steps for Improvement\nLanguage\nNA\nESL/ELD\nIEP\n75\n76.0\n75\n75.0\nLiteracy Connections and Applications, Foundations in Language, Comprehension, Composition\nLANGUAGE - READING: Easton effectively reads/comprehends/analyzes\nvarious complex texts to support his views. WRITING: Easton demonstrates an\nunderstanding of writing paragraphs and plot analyses this term. He\ndemonstrates some ability to edit/revise his work for writing convention errors.\nORAL: Easton uses speaking skills and strategies learned in class to create\nunique and original oral presentations during TUSC. Way to go!\nCongratulations on a great term! MD\nFrench\nNA\nListening\nESL/ELD\nIEP\n74\n80.0\n66\n78.0\nSpeaking\nESL/ELD\nIEP\n72\n78.0\n77\n77.0\nReading\nESL/ELD\nIEP\n79\n77.0\n84\n77.0\nWriting\nESL/ELD\nIEP\n67\n78.0\n73\n78.0\n X Core\nImmersion\nExtended\nFRAN\u00c7AIS: LI: Easton is encouraged to use listening strategies taught in class\nto help him determine meaning in a variety of oral French texts. He is also\nencouraged to persevere when responding to challenges and seeks assistance\nmore promptly when needed. SP: Using familiar words and expressions, he\nproduced rehearsed and increasingly spontaneous messages in French. He\nusually expresses himself clearly in French, using accurate vocabulary and\npronunciation. RE: Easton demonstrates an understanding of a variety of\nFrench texts containing visuals and familiar names, words, and expressions.\nHe uses reading comprehension strategies to determine the meaning of\nunfamiliar words. WR: He usually communicates ideas clearly using\nappropriate vocabulary and grammar. He should continue to use resources to\nimprove his writing. Good job, Easton. WM\nNative Language\nESL/ELD\nIEP\nX NA\nOral Communication, Reading, Writing\nMathematics\nESL/ELD\nIEP\nFrench\n65\n78.0\n75\n78.0\nNumber, Algebra, Data, Spatial Sense, Financial Literacy\nMATH: Easton can multiply and divide fractions by fractions, as well as by\nwhole numbers and mixed numbers, in various contexts, using the appropriate\nalgoritms. He can solve equations that involve multiple terms, integers, and\ndecimal numbers in various contexts, and verify solutions. Easton will evaluate\nalgebraic expressions that involve rational numbers. Using mathematical\nthinking, Easton can solve problems involving the perimeter, circumference,\narea, volume, and surface area of simple composite two dimensional shapes\nand three dimensional objects, using appropriate formulas. He understands\nthe Pythagorean relationship and applies the theorem to solve problems\ninvolving an unknown side length for a given right triangle. Easton describes\nthe advantages and disadvantages of various methods of payment that can\nbe used when dealing with multiple currencies and exchange rates. A.\nMcIntyre\nScience and Technology\n73\n77.0\n77\n75.0\nESL/ELD\nIEP\nFrench\nSTEM Skills and Connections, Life Systems, Matter and Energy,\nStructures and Mechanisms, Earth and Space Systems\nSCIENCE: Easton uses technological problem-solving skills to design, build,\nand test a water system device that performs a practical function or meets a\nneed. Easton investigated working systems and the ways that individual\ncomponents contribute to the desired function of a system.  He demonstrated\nan understanding of different systems and the factors that contribute to their\nsafe and efficient operation. A McIntyre\n0463E (2023/09)\nGrades 7 and 8\nPage 2 of 4\n"
+      },
+      "4": {
+        "one_sentence_summary": "This report card details Easton Olmstead's academic performance and growth in Grade 8 at Goulbourn M.S.",
+        "full_summary": {
+          "Student Information": {
+            "Name": "Easton David Olmstead",
+            "OEN": "735-011-272",
+            "Grade": "08",
+            "Teacher": "Alex McIntyre",
+            "Days Absent": 14,
+            "Total Days Absent": 24,
+            "Times Late": 2,
+            "Total Times Late": 10
+          },
+          "School Information": {
+            "Board": "Ottawa-Carleton District School Board",
+            "School": "Goulbourn M.S.",
+            "School Address": "2176 Huntley Road, Stittsville, ON K2S1B8",
+            "Principal": "Hanif Jamal",
+            "Telephone": "6138361312"
+          },
+          "Learning Skills and Work Habits": {
+            "Responsibility": "Good",
+            "Independent Work": "Satisfactory",
+            "Initiative": "Good",
+            "Organization": "Good",
+            "Collaboration": "Good",
+            "Self-Regulation": "Satisfactory"
+          },
+          "Strengths and Areas for Improvement": {
+            "Strengths": "Easton has shown growth in meeting academic challenges, responsibility, curiosity, and collaboration skills.",
+            "Next Steps": "Seek support for difficult material, keep organized, and stay on top of deadlines."
+          },
+          "Subject Performance": {
+            "Language": {
+              "Report 1": "75",
+              "Report 2": "75"
+            },
+            "French": {
+              "Listening": "74",
+              "Speaking": "72",
+              "Reading": "79",
+              "Writing": "67"
+            },
+            "Mathematics": {
+              "Report 1": "65",
+              "Report 2": "75"
+            },
+            "Science": {
+              "Report 1": "73",
+              "Report 2": "77"
+            },
+            "History": {
+              "Report 1": "NA",
+              "Report 2": "70"
+            },
+            "Geography": {
+              "Report 1": "NA",
+              "Report 2": "78"
+            },
+            "Health and Physical Education": {
+              "Health Education": "75",
+              "Physical Education": "77"
+            },
+            "Arts": {
+              "Dance": "NA",
+              "Drama": "85",
+              "Music": "NA",
+              "Visual Arts": "85"
+            }
+          },
+          "Remarks": "Easton has excelled in various subjects and participated actively in extracurricular activities."
+        },
+        "topics": [
+          "Student Performance",
+          "Learning Skills",
+          "Academic Assessment",
+          "Extracurricular Activities",
+          "Subject Grades",
+          "Teacher Feedback",
+          "Grade 8 Education",
+          "Ottawa-Carleton District School Board",
+          "Elementary Report Card",
+          "Academic Growth"
+        ],
+        "keywords": [
+          "Report Card",
+          "Easton Olmstead",
+          "Grade 8",
+          "Learning Skills",
+          "Absences",
+          "Participation",
+          "Extracurricular Activities",
+          "Teacher Comments",
+          "Subject Grades",
+          "Feedback"
+        ],
+        "key_information": {
+          "Academic Year": "2023-2024",
+          "Days Absent": 14,
+          "Total Days Absent": 24,
+          "Next Steps for Improvement": "Seek support, stay organized, manage deadlines"
+        },
+        "entities": [
+          {
+            "Name": "Easton David Olmstead",
+            "Type": "Person"
+          },
+          {
+            "Name": "Alex McIntyre",
+            "Type": "Person"
+          },
+          {
+            "Name": "Hanif Jamal",
+            "Type": "Person"
+          },
+          {
+            "Name": "Ottawa-Carleton District School Board",
+            "Type": "Organization"
+          },
+          {
+            "Name": "Goulbourn M.S.",
+            "Type": "Organization"
+          },
+          {
+            "Date": "6/26/2024",
+            "Type": "Date"
+          }
+        ],
+        "sentiment": "positive",
+        "acronyms": {
+          "OEN": "Ontario Education Number",
+          "ESL/ELD": "English as a Second Language/English Literacy Development",
+          "IEP": "Individual Education Plan",
+          "NA": "Not Applicable"
+        },
+        "chapter_or_section": null,
+        "noteworthy_sentences": [
+          "Easton has demonstrated the ability to fulfill responsibilities and commitments within the learning environment.",
+          "He has developed the ability to plan out his work and follow a process for completing tasks at a grade appropriate level.",
+          "A major highlight for him was participating in the school musical and leading a successful club for the entire year."
+        ],
+        "token_count": 1645,
+        "visual_elements": "The report card includes structured text with subject headings, performance percentages, teacher comments, and a signature section for the teacher and principal.",
+        "raw_text": "Student: Olmstead, Easton David\nOEN: 735-011-272\nGrade: 08\nPercentage Mark\nAchievement of the Provincial Curriculum Expectations\n80-100\n70-79\n60-69\n50-59\nR\nI\nThe student has demonstrated the required knowledge and skills with a high degree of effectiveness.\nAchievement surpasses the provincial standard. (Level 4)\nThe student has demonstrated the required knowledge and skills with considerable effectiveness.\nAchievement meets the provincial standard. (Level 3)\nThe student has demonstrated the required knowledge and skills with some effectiveness.\nAchievement approaches the provincial standard. (Level 2)\nThe student has demonstrated the required knowledge and skills with limited effectiveness.\nAchievement falls much below the provincial standard. (Level 1)\nThe student has not demonstrated the required knowledge and skills.\nExtensive remediation is required.\nInsufficient evidence to assign a percentage mark\nESL/ELD - Achievement is based on expectations modified from the curriculum expectations for the grade to support\nEnglish language learning needs.\nIEP - Individual Education Plan\nNA - No instruction for subject/strand for reporting period\nMedian - The percentage mark at which 50 per cent of the students in the grade have a higher percentage mark\nfor the subject/strand and 50 per cent of the students have a lower percentage mark\nTo Parents/Guardians and Students: This copy of the report card should be retained for reference. The original or an\nexact copy has been placed in the student's Ontario Student Record (OSR) folder and will be retained for five years after\nthe student leaves school.\nTeacher's\nSignature\n  X\nPrincipal's\nSignature\nHanif Jamal\n06/25/2024\nElementary Provincial Report Card (Please complete, sign, and detach the form below, and return it to your child's teacher.)\nStudent:\nGrade:\nTeacher:\nMcIntyre, Alex\nOlmstead, Easton\n08\nOEN:\n735-011-272\nParent's/Guardian's Comments\n \u2022 My child has improved most in:\n \u2022 I will help my child to:\nI have received this report card.\nI would like to discuss this\nreport card.  Please contact me.\nParent's/Guardian's name (please print)\nSignature:\nDate:\nTelephone (day):\nTelephone (evening):\nX\n0463E (2023/09)\nGrades 7 and 8\nPage 4 of 4\n"
+      },
+      "3": {
+        "one_sentence_summary": "The report card details Easton Olmstead's academic performance and learning skills in Grade 8 for the 2023-2024 school year.",
+        "full_summary": {
+          "Student Information": {
+            "Name": "Easton David Olmstead",
+            "OEN": "735-011-272",
+            "Grade": "08",
+            "School": "Goulbourn M.S.",
+            "Teacher": "Alex McIntyre",
+            "Principal": "Hanif Jamal",
+            "Days Absent": "14 out of 24",
+            "Times Late": "2 out of 10"
+          },
+          "Learning Skills and Work Habits": {
+            "Responsibility": "Good",
+            "Independent Work": "Satisfactory",
+            "Initiative": "Good",
+            "Organization": "Good",
+            "Collaboration": "Good",
+            "Self-Regulation": "Satisfactory"
+          },
+          "Strengths": [
+            "Demonstrated commitment to responsibilities and deadlines.",
+            "Successful participation in school musical and leading a club.",
+            "Positive attitude towards learning and curiosity."
+          ],
+          "Next Steps for Improvement": [
+            "Seek support when material is unclear.",
+            "Stay organized and on top of deadlines."
+          ],
+          "Subject Performance": {
+            "Language": {
+              "Report 1 Mark": "75",
+              "Report 2 Mark": "75",
+              "Comments": "Easton effectively comprehends and analyzes texts."
+            },
+            "French": {
+              "Overall Performance": "74-80",
+              "Comments": "Encouraged to use strategies for comprehension and seek help."
+            },
+            "Mathematics": {
+              "Report 1 Mark": "65",
+              "Report 2 Mark": "75",
+              "Comments": "Understands various mathematical concepts and their applications."
+            },
+            "Science and Technology": {
+              "Report 1 Mark": "73",
+              "Report 2 Mark": "77",
+              "Comments": "Demonstrated problem-solving skills through design and testing."
+            },
+            "Health and Physical Education": {
+              "Health Mark": "75",
+              "P.E. Mark": "77",
+              "Comments": "Active participation in all activities."
+            },
+            "The Arts": {
+              "Dance": "85",
+              "Drama": "85",
+              "Visual Arts": "85",
+              "Comments": "Creativity and understanding of artistic principles displayed."
+            }
+          }
+        },
+        "topics": [
+          "Student Performance",
+          "Learning Skills",
+          "Grade 8 Report Card",
+          "Academic Progress",
+          "Extracurricular Activities",
+          "Teacher Feedback",
+          "Next Steps for Improvement"
+        ],
+        "keywords": [
+          "Easton Olmstead",
+          "Grade 8",
+          "Report Card",
+          "Learning Skills",
+          "Academic Performance",
+          "Absenteeism",
+          "Participation",
+          "Teacher Comments"
+        ],
+        "key_information": {
+          "Absences": {
+            "Days Absent": 14,
+            "Total Days Absent": 24
+          },
+          "Late Arrivals": {
+            "Times Late": 2,
+            "Total Times Late": 10
+          },
+          "Academic Marks": {
+            "Language": 75,
+            "French": 74,
+            "Mathematics": 65,
+            "Science": 73,
+            "Health": 75,
+            "Physical Education": 77,
+            "The Arts": 85
+          }
+        },
+        "entities": [
+          {
+            "type": "Person",
+            "name": "Easton David Olmstead"
+          },
+          {
+            "type": "Person",
+            "name": "Alex McIntyre"
+          },
+          {
+            "type": "Person",
+            "name": "Hanif Jamal"
+          },
+          {
+            "type": "Organization",
+            "name": "Ottawa-Carleton District School Board"
+          },
+          {
+            "type": "Location",
+            "name": "Goulbourn M.S."
+          },
+          {
+            "type": "Date",
+            "name": "6/26/2024"
+          }
+        ],
+        "sentiment": "positive",
+        "acronyms": {
+          "ESL": "English as a Second Language",
+          "IEP": "Individualized Education Plan"
+        },
+        "chapter_or_section": null,
+        "noteworthy_sentences": [
+          "Easton has had a good second term where he continued to apply himself to his school work.",
+          "A major highlight for him was participating in the school musical and leading a successful club for the entire year.",
+          "Wishing you all the best in Grade 9, Easton!"
+        ],
+        "token_count": 1024,
+        "visual_elements": "The report includes formatted sections for various subjects, with numerical scores and comments. There are no images or charts present.",
+        "raw_text": "Student: Olmstead, Easton David\nOEN: 735-011-272\nGrade: 08\nSubject\nReport 1\n% Mark\nMedian\nReport 2\n% Mark\nMedian\nStrengths/Next Steps for Improvement\nHistory\n X NA\nESL/ELD\nIEP\nFrench\n70\n78.0\nGeography\nNA\nESL/ELD\nIEP\nFrench\n78\n75.0\nHISTORY: History was assessed in Term 1. MD\nGEOGRAPHY: Easton can identify and explain population growth, settlement\npatterns, and economic terminology. He mostly uses geographic vocabulary\nand concepts appropriately. Good work this term. MD\nHealth and Physical Education\nHealth Education:\nHealthy Living\nESL/ELD\nIEP\nFrench\n75\n78.0\n82\n78.0\nPhysical Education:\nActive Living, Movement Competence\nESL/ELD\nIEP\nFrench\n77\n78.0\n75\n78.0\nHEALTH: Easton demonstrates thorough understanding and application of the\nconcepts taught in the Health and Wellbeing, Substance Use/Addictions, and\nHealthy Relationships strands of the curriculum. Excellent job! MD\nP.E.: Easton always participates actively in all physical education activities\nsuch as tchoukball, basketball, bordenball and soccer. He accepts new\nchallenges by consistently setting goals and working toward improving /\nmaintaining  his level of physical fitness. Have a great active summer. A.\nMcIntyre\nThe Arts\nDance\nFrench\nESL/ELD\nIEP\n X NA\n85\n78.0\nDrama\nFrench\nESL/ELD\nIEP\nNA\n85\n78.0\nMusic\nFrench\nESL/ELD\nIEP\nNA\n82\n75.0\n78\n75.0\nVisual Arts\nFrench\nESL/ELD\nIEP\nNA\n85\n78.0\n85\n78.0\nDANCE: Dance was assessed in Term 1. MD\nDRAMA: Easton consistently uses a variety of verbal / gestural strategies to\nclearly communicate a character's transformation. He thoroughly interprets /\nanalyzes dramatic works in the comedy unit. Nicely done! MD\nStudents learned to clap patterns of quarter, eighth, half, and whole notes in\nrepetitive combinations. With a considerable degree of understanding, Easton\nis able to read rhythmic notation. FD\nVA: Easton demonstrates thorough understanding of the main principle and\nElements of Design studied this term. His creativity really shone in the projects\nhe submitted. Great work, Easton! MD\nESL/ELD\nIEP\nFrench\nX NA\nElementary Provincial Report Card (Please have your child complete the form below, and return it to your child's teacher.)\nStudent:\nOEN:\nTeacher:\nMcIntyre, Alex\nOlmstead, Easton\n08\nGrade:\n735-011-272\nStudent's Comments\n \u2022 My best work is:\n \u2022 My goal for improvement is:\nStudent's Signature\nX\n0463E (2023/09)\nGrades 7 and 8\nPage 3 of 4\n"
+      }
+    }
+  },
+  "temp_file_path": "C:\\Users\\BRETTO~1\\AppData\\Local\\Temp\\tmphhpmxwar.pdf",
+  "extraction_model": "gpt-4o-mini"
+}

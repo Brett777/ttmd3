@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17. RAG-Ultra Document Processing Feature - Agentic Chat Application</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        ul {
+            list-style-type: square;
+        }
+        .highlight {
+            background-color: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .nav-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-header a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .nav-header a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+        .model-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .provider-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .provider-card h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .provider-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+        .provider-card ul li {
+            background-color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-note {
+            font-size: 0.9em;
+            color: #5a6470;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9f5fd;
+            border: 1px solid #aed6f1;
+        }
+        .tool-note code {
+            background-color: #d4e6f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        .page-explorer-wireframe { margin: 20px 0; border: 2px solid #27ae60; padding: 20px; border-radius: 8px; background: #f2fef7; }
+        .page-explorer-container { display: flex; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fff; min-height: 450px; }
+        .page-explorer-sidebar { width: 200px; border-right: 1px solid #ddd; padding: 10px; overflow-y: auto; background: #f9f9f9; }
+        .page-explorer-main { flex: 1; padding: 20px; }
+        .thumbnail-item { border: 1px solid #ccc; border-radius: 5px; padding: 8px; margin-bottom: 10px; cursor: pointer; text-align: center; background: #fff; }
+        .thumbnail-item.selected { border-color: #3498db; background: #eaf5ff; box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
+        .thumbnail-img { width: 100%; height: 120px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #888; border-radius: 4px; margin-bottom: 5px; }
+        .detail-view-img { width: 100%; max-height: 300px; background: #e0e0e0; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ccc; }
+        .detail-view-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #aaa; }
+        .detail-view-placeholder-icon { font-size: 40px; margin-bottom: 10px; }
+        .detail-actions { margin-bottom: 10px; text-align: right; }
+        .detail-action-btn { background: #f0f0f0; border: 1px solid #ccc; padding: 4px 10px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-left: 5px; }
+        .accordion { margin-top: 10px; }
+        .accordion-item { border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; background: #fff; }
+        .accordion-header { background: #f7f7f7; padding: 10px 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-content { padding: 15px; border-top: 1px solid #ddd; display: none; }
+        .accordion-header::after { content: '+'; font-size: 1.3em; color: #888; }
+        .accordion-item.expanded .accordion-header::after { content: '−'; }
+        .accordion-item.expanded .accordion-content { display: block; }
+        .data-modal-wireframe { margin: 20px 0; border: 2px solid #8e44ad; padding: 20px; border-radius: 8px; background: #f9f2ff; }
+        .data-panel-card { border: 1px solid #ccc; border-radius: 8px; margin-top: 15px; padding: 15px; background: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .sql-editor-mockup { background: #2d2d2d; color: #f1f1f1; border-radius: 4px; padding: 10px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 13px; white-space: pre; border: 1px solid #444; }
+        .results-table-mockup { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .results-table-mockup th, .results-table-mockup td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 13px; }
+        .results-table-mockup th { background: #f2f2f2; font-weight: 600; }
+        .chart-canvas-mockup { background: #f7f7f7; border: 1px dashed #ccc; text-align: center; padding: 40px 20px; color: #888; margin-top: 15px; border-radius: 4px; }
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
+        .tech-table th, .tech-table td { border-bottom: 1px solid #dee2e6; padding: 12px 15px; text-align: left; }
+        .tech-table tr:last-child th, .tech-table tr:last-child td { border-bottom: none; }
+        .tech-table th { background-color: #f8f9fa; font-weight: 600; }
+        .tech-table td code { background-color: #e9ecef; padding: 3px 6px; border-radius: 4px; }
+        .uploaded-files-section { padding: 15px; background: #fdfcff; border-bottom: 1px solid #e0e0e0; }
+        .uploaded-files-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .uploaded-files-header h6 { margin: 0; font-size: 1em; color: #333; }
+        .total-size-info { font-size: 0.9em; font-weight: 500; color: #555; }
+        .file-list { list-style-type: none; padding: 0; margin: 0; max-height: 150px; overflow-y: auto; }
+        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border: 1px solid #e0e0e0; border-radius: 6px; margin-bottom: 8px; background: #fff; cursor: pointer; }
+        .file-item.selected { border-color: #8e44ad; background-color: #f9f2ff; }
+        .file-name { font-weight: 600; color: #333; }
+        .file-metadata { font-size: 0.85em; color: #666; }
+        .data-viewer-container { padding: 20px; }
+        .data-viewer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .data-viewer-title { margin: 0; font-size: 1.1em; }
+        .pagination-controls { display: flex; align-items: center; gap: 10px; font-size: 0.9em; }
+        .pagination-controls select, .pagination-controls button { padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        .data-table-wrapper { overflow-x: auto; }
+        .data-table th { cursor: pointer; position: relative; }
+        .data-table th:hover { background: #e8e8e8; }
+        .sort-icon { font-size: 0.8em; margin-left: 5px; color: #888; }
+        .filter-icon { margin-left: 4px; cursor: pointer; color: #888; }
+        .db-connection-view { padding: 20px; }
+        .db-connector-selector { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+        .connector-btn { padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .connector-btn.active { border-color: #8e44ad; background: #f9f2ff; color: #8e44ad; }
+        .connector-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-weight: 500; margin-bottom: 5px; font-size: 0.9em; }
+        .form-group input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .full-width { grid-column: 1 / -1; }
+        .auth-tabs { display: flex; gap: 5px; margin-bottom: 10px; }
+        .auth-tab { padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.9em; border: 1px solid transparent; }
+        .auth-tab.active { background: #e9d8f3; border-color: #d1b3e6; }
+        .db-navigator { display: flex; gap: 15px; border-top: 1px solid #ddd; margin-top: 20px; padding-top: 20px; min-height: 250px; }
+        .nav-column { flex: 1; border: 1px solid #e0e0e0; border-radius: 6px; background: #fff; }
+        .nav-column-header { padding: 10px; border-bottom: 1px solid #e0e0e0; font-weight: 600; background: #f9f9f9; }
+        .nav-list { list-style-type: none; padding: 10px; margin: 0; max-height: 200px; overflow-y: auto; }
+        .nav-list-item { padding: 8px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .nav-list-item:hover { background: #f0f0f0; }
+        .nav-list-item.selected { background: #e9d8f3; font-weight: 500; }
+        .file-upload-btn { display: inline-block; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background: #f0f0f0; cursor: pointer; font-size: 0.9em; }
+        .db-preview-section { margin-top: 20px; border-top: 2px solid #ddd; padding-top: 20px; }
+        .explanation-box { background: #f0f7ff; border: 1px solid #aed6f1; border-left-width: 4px; border-left-color: #4a90e2; padding: 12px; border-radius: 6px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <div class="nav-header">
+            <a href="index.html">← Table of Contents</a>
+            <div class="nav-links">
+                <a href="16-image-upload-feature.html">← Previous</a>
+                <a href="18-citations.html">Next →</a>
+            </div>
+        </div>
+        
+        <h2 id="rag-ultra">17. RAG-Ultra Document Processing Feature</h2>
+                <h3>17.1. Overview</h3>
+                <p>This major feature integrates the <strong>RAG-Ultra SDK</strong> to enable advanced document processing and intelligent retrieval capabilities. Users can upload documents (PDF, DOCX, PPTX, TXT), process them with LLM-powered metadata extraction, and then query their documents using natural language through the chat interface.</p>
+                
+                <div class="highlight">
+                    <strong>Key Capabilities:</strong>
+                    <ul>
+                        <li>Extract structured metadata and summaries from documents using LLMs</li>
+                        <li>Store processed documents in browser IndexedDB for persistence</li>
+                        <li>Query multiple documents simultaneously with intelligent retrieval</li>
+                        <li>Display citations with document and page references</li>
+                        <li>Background processing with real-time progress updates</li>
+                    </ul>
+                </div>
+        
+                <h3>17.2. Technical Architecture</h3>
+                <h4>17.2.1. RAG-Ultra Integration</h4>
+                <p>The RAG-Ultra SDK provides:</p>
+                <ul>
+                    <li><strong>Document Processing Pipeline:</strong>
+                        <ul>
+                            <li>Text extraction from PDF, DOCX, PPTX, TXT files</li>
+                            <li>Page-to-image conversion (base64 format)</li>
+                            <li>LLM-powered metadata generation (per-page and document-level)</li>
+                            <li>Hierarchical metadata structure with summaries, keywords, topics</li>
+                        </ul>
+                    </li>
+                    <li><strong>Intelligent Retrieval Agent:</strong>
+                        <ul>
+                            <li>Dynamic selection of minimal metadata fields for each query</li>
+                            <li>Multi-document support with citations as {document, page} pairs</li>
+                            <li>Conversation history support</li>
+                            <li>Fallback to raw text when metadata is insufficient</li>
+                        </ul>
+                    </li>
+                </ul>
+        
+                <h4>17.2.2. Storage Strategy (IndexedDB)</h4>
+                <div class="code-block">
+        // IndexedDB Schema
+        {
+          documents: {
+            id: string,                    // UUID
+            filename: string,              // Original filename
+            uploadDate: timestamp,         // When uploaded
+            processedDate: timestamp,      // When processing completed
+            fileSize: number,              // Size in bytes
+            status: 'uploading' | 'processing' | 'completed' | 'error',
+            extractionModel: string,       // Model used for metadata extraction
+            metadata: {                    // Full RAG-Ultra output
+              document_details: {
+                title: string,
+                author: string,
+                date: string,
+                total_pages: number,
+                // ... other details
+              },
+              pages: {
+                "1": {
+                  summary: string,
+                  raw_text: string,
+                  image: string,           // base64 image - STORED
+                  topics: string[],
+                  keywords: string[],
+                  // ... other metadata
+                },
+                // ... more pages
+              },
+              document_summary: {
+                short_summary: string,
+                detailed_summary: string,
+                main_topics: string[],
+                key_insights: string[]
+              }
+            }
+          },
+          
+          processingJobs: {
+            id: string,                    // Job UUID
+            documentId: string,            // Associated document
+            status: 'queued' | 'processing' | 'completed' | 'error',
+            progress: {
+              stage: string,               // Current processing stage
+              current: number,             // Current item (e.g., page)
+              total: number,               // Total items
+              message: string              // Human-readable status
+            },
+            logs: string[],                // Detailed processing logs
+            startTime: timestamp,
+            endTime: timestamp,
+            error: string                  // Error message if failed
+          }
+        }
+                </div>
+        
+                <h3>17.3. User Interface Design</h3>
+                <h4>17.3.1. Document Management Modal</h4>
+                <p>A comprehensive modal interface for document upload, processing, and exploration:</p>
+                
+                <div class="code-block">
+        Document Management Modal
+        ├── Header
+        │   ├── Title: "Document Management"
+        │   ├── Close Button (X)
+        │   └── Processing Badge (shows active job count)
+        ├── Tabs
+        │   ├── Upload & Process
+        │   │   ├── Model Selector
+        │   │   │   └── Dropdown with LLM options for extraction
+        │   │   ├── Drop Zone
+        │   │   │   ├── Drag & drop area
+        │   │   │   └── "Drop files here or click to browse"
+        │   │   ├── Processing Queue
+        │   │   │   └── Job Item
+        │   │   │       ├── Filename
+        │   │   │       ├── Progress Bar with Stage Label
+        │   │   │       ├── View Logs Button
+        │   │   │       └── Cancel Button (if processing)
+        │   │   └── Completed Documents (simple list)
+        │   └── Document Explorer
+        │       ├── Document List (left panel)
+        │       │   └── Document Item
+        │       │       ├── Filename
+        │       │       ├── Pages: X
+        │       │       ├── Processed: date
+        │       │       └── Delete Button
+        │       └── Document Viewer (right panel)
+        │           ├── Document Info
+        │           │   ├── Title
+        │           │   ├── Author
+        │           │   └── Summary
+        │           └── Page Browser
+        │               ├── Page Thumbnails (using stored base64)
+        │               └── Page Details on Click
+                </div>
+        
+                <h4>17.3.2. Chat Integration UI</h4>
+                <ul>
+                    <li><strong>Document Context Toggle:</strong> Switch to enable/disable document retrieval</li>
+                    <li><strong>Document Indicator:</strong> Shows count of documents being used</li>
+                    <li><strong>Citation Display:</strong> Expandable blocks showing source documents and pages</li>
+                </ul>
+        
+                <style>
+                    .rag-wireframe { margin: 20px 0; border: 2px solid #4a90e2; padding: 20px; border-radius: 8px; background: #f0f7ff; }
+                    .rag-modal { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+                    .rag-modal-header { background: #4a90e2; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+                    .rag-tabs { display: flex; border-bottom: 2px solid #e0e0e0; }
+                    .rag-tab { padding: 12px 24px; cursor: pointer; background: #f5f5f5; border-right: 1px solid #e0e0e0; }
+                    .rag-tab.active { background: white; border-bottom: 2px solid #4a90e2; margin-bottom: -2px; }
+                    .rag-content { padding: 20px; min-height: 400px; }
+                    .rag-dropzone { border: 2px dashed #4a90e2; border-radius: 8px; padding: 40px; text-align: center; background: #f9fcff; }
+                    .rag-progress { margin: 20px 0; }
+                    .rag-progress-bar { height: 24px; background: #e0e0e0; border-radius: 12px; overflow: hidden; }
+                    .rag-progress-fill { height: 100%; background: #4a90e2; transition: width 0.3s ease; display: flex; align-items: center; padding: 0 10px; color: white; font-size: 12px; }
+                </style>
+        
+                <div class="rag-wireframe">
+                    <h5>Document Management Modal Mockup</h5>
+                    <div class="rag-modal">
+                        <div class="rag-modal-header">
+                            <span>Document Management</span>
+                            <span style="cursor: pointer;">✕</span>
+                        </div>
+                        <div class="rag-tabs">
+                            <div class="rag-tab active">Upload & Process</div>
+                            <div class="rag-tab">Document Explorer</div>
+                        </div>
+                        <div class="rag-content">
+                            <div style="margin-bottom: 20px;">
+                                <label>Extraction Model:</label>
+                                <select style="margin-left: 10px; padding: 5px;">
+                                    <option>gpt-4o</option>
+                                    <option>claude-3.5-sonnet</option>
+                                </select>
+                            </div>
+                            <div class="rag-dropzone">
+                                <div style="font-size: 48px;">📄</div>
+                                <p>Drop files here or click to browse</p>
+                                <p style="font-size: 12px; color: #666;">Supports PDF, DOCX, PPTX, TXT (max 20MB)</p>
+                            </div>
+                            <div class="rag-progress">
+                                <h6>Processing: report.pdf</h6>
+                                <div class="rag-progress-bar">
+                                    <div class="rag-progress-fill" style="width: 65%;">
+                                        Generating page metadata... (19/30)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <h4>17.3.3. Document Explorer - Enhanced Pages View</h4>
+                <p>To improve usability and provide a more intuitive browsing experience, the "Pages" tab within the Document Explorer has been redesigned from a simple grid into an interactive <strong>master-detail interface</strong>. This allows users to quickly scan through page thumbnails and view detailed information without leaving the context of the main explorer.</p>
+                
+                <style>
+                    .page-explorer-wireframe { margin: 20px 0; border: 2px solid #27ae60; padding: 20px; border-radius: 8px; background: #f2fef7; }
+                    .page-explorer-container { display: flex; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fff; min-height: 450px; }
+                    .page-explorer-sidebar { width: 200px; border-right: 1px solid #ddd; padding: 10px; overflow-y: auto; background: #f9f9f9; }
+                    .page-explorer-main { flex: 1; padding: 20px; }
+                    .thumbnail-item { border: 1px solid #ccc; border-radius: 5px; padding: 8px; margin-bottom: 10px; cursor: pointer; text-align: center; background: #fff; }
+                    .thumbnail-item.selected { border-color: #3498db; background: #eaf5ff; box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
+                    .thumbnail-img { width: 100%; height: 120px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #888; border-radius: 4px; margin-bottom: 5px; }
+                    .detail-view-img { width: 100%; max-height: 300px; background: #e0e0e0; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ccc; }
+                    .detail-view-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #aaa; }
+                    .detail-view-placeholder-icon { font-size: 40px; margin-bottom: 10px; }
+                    .detail-actions { margin-bottom: 10px; text-align: right; }
+                    .detail-action-btn { background: #f0f0f0; border: 1px solid #ccc; padding: 4px 10px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-left: 5px; }
+                    .accordion { margin-top: 10px; }
+                    .accordion-item { border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; background: #fff; }
+                    .accordion-header { background: #f7f7f7; padding: 10px 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+                    .accordion-content { padding: 15px; border-top: 1px solid #ddd; display: none; }
+                    .accordion-header::after { content: '+'; font-size: 1.3em; color: #888; }
+                    .accordion-item.expanded .accordion-header::after { content: '−'; }
+                    .accordion-item.expanded .accordion-content { display: block; }
+                </style>
+        
+                <div class="page-explorer-wireframe">
+                    <h5>Wireframe: Pages Tab Master-Detail View</h5>
+                    <div class="page-explorer-container">
+                        <!-- Left Panel: Vertical Thumbnail List -->
+                        <div class="page-explorer-sidebar">
+                            <div class="thumbnail-item">
+                                <div class="thumbnail-img">Page 1<br/>Thumbnail</div>
+                                <span>Page 1</span>
+                            </div>
+                            <div class="thumbnail-item selected">
+                                <div class="thumbnail-img">Page 2<br/>Thumbnail</div>
+                                <span>Page 2</span>
+                            </div>
+                            <div class="thumbnail-item">
+                                <div class="thumbnail-img">Page 3<br/>Thumbnail</div>
+                                <span>Page 3</span>
+                            </div>
+                             <div class="thumbnail-item">
+                                <div class="thumbnail-img">...</div>
+                                <span>...</span>
+                            </div>
+                        </div>
+        
+                        <!-- Right Panel: Selected Page Details -->
+                        <div class="page-explorer-main">
+                            <div class="detail-actions">
+                                <button class="detail-action-btn">Expand All</button>
+                                <button class="detail-action-btn">Collapse All</button>
+                            </div>
+                            <h5>Page 2 Details</h5>
+                            <div class="detail-view-img" style="text-align: center; padding: 20px; box-sizing: border-box; font-size: 14px; color: #888;">Enlarged Page Thumbnail Image</div>
+                            
+                            <div class="accordion">
+                                <div class="accordion-item expanded">
+                                    <div class="accordion-header">Summary</div>
+                                    <div class="accordion-content">
+                                        <p style="font-size: 14px; color: #555;">This page discusses the quarterly financial results, highlighting a 15% increase in revenue driven by new market expansion.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header">Topics</div>
+                                    <div class="accordion-content">
+                                        <span style="background: #eaf5ff; color: #3498db; padding: 3px 8px; border-radius: 12px; font-size: 12px;">Financials</span>
+                                        <span style="background: #eaf5ff; color: #3498db; padding: 3px 8px; border-radius: 12px; font-size: 12px;">Revenue Growth</span>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header">Keywords</div>
+                                    <div class="accordion-content">
+                                        <p style="font-size: 14px; color: #555;"><i>Keywords would appear here as tags...</i></p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header">Raw Text</div>
+                                    <div class="accordion-content">
+                                        <p style="font-size: 14px; color: #555;"><i>The full extracted text of the page would appear here in a scrollable box...</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <h5>Key Features & Behavior:</h5>
+                <ul>
+                    <li><strong>Layout:</strong> A two-column layout is used within the "Pages" tab.
+                        <ul>
+                            <li>The <strong>left column</strong> is a fixed-width, scrollable container displaying a vertical list of page thumbnails.</li>
+                            <li>The <strong>right column</strong> is a flexible area that displays the details of the currently selected page.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Interaction:</strong>
+                        <ul>
+                            <li>When the "Pages" tab is first opened, the details for the <strong>first page</strong> of the document are displayed by default.</li>
+                            <li>Clicking a thumbnail in the left column instantly updates the right column to show the details for that page.</li>
+                            <li>The currently selected thumbnail in the list is visually highlighted with a different background and border color.</li>
+                            <li>"Expand All" and "Collapse All" buttons are provided to manage the visibility of all metadata sections at once.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Content:</strong>
+                        <ul>
+                            <li>Each item in the left list shows a small preview image (thumbnail) of the page and its page number.</li>
+                            <li>The right detail view shows a larger version of the page image. Below the image, all associated page-level metadata (Summary, Topics, Keywords, Raw Text, etc.) is organized into an <strong>accordion interface</strong>.</li>
+                            <li>By default, the "Summary" section is expanded, and all other sections are collapsed, providing a clean initial view.</li>
+                        </ul>
+                    </li>
+                    <li><strong>No More Modals:</strong> This design eliminates the need for a secondary modal, streamlining the user workflow for exploring document contents.</li>
+                </ul>
+        
+                <h5>Thumbnail Storage and Retrieval:</h5>
+                <ul>
+                    <li><strong>Storage:</strong> During the backend processing, a small JPEG thumbnail is generated for each page and encoded as a base64 string. This string is stored directly within the document's JSON metadata under the <code>pages.[page_number].base64_image</code> key. The entire metadata object, including all thumbnails, is saved as a single entry in the browser's IndexedDB.</li>
+                    <li><strong>Retrieval:</strong> When a user selects a document from the explorer list, its complete metadata object is loaded from IndexedDB into the application's memory. The UI then renders the page thumbnails by reading the base64 strings directly from this in-memory data. This approach avoids lazy loading or additional API calls, ensuring that all thumbnails are displayed instantly once a document is opened.</li>
+                </ul>
+        
+                <h3>17.4. Processing Flow</h3>
+                <h4>17.4.1. Document Upload and Processing</h4>
+                <ol>
+                    <li><strong>File Selection:</strong> User selects files via drag & drop or file browser</li>
+                    <li><strong>Model Selection:</strong> User chooses LLM for metadata extraction</li>
+                    <li><strong>Upload:</strong> Files uploaded to backend via <code>/api/documents/upload</code></li>
+                    <li><strong>Processing Stages:</strong>
+                        <ul>
+                            <li>Text extraction from document</li>
+                            <li>Page-to-image conversion</li>
+                            <li>Metadata generation (per-page)</li>
+                            <li>Document summary generation</li>
+                            <li>Storage in IndexedDB</li>
+                        </ul>
+                    </li>
+                    <li><strong>Progress Updates:</strong> Frontend polls <code>/api/documents/process/{jobId}/status</code> every 2 seconds</li>
+                </ol>
+        
+                <h4>17.4.2. Chat Integration Flow</h4>
+                <ol>
+                    <li><strong>Toggle Document Context:</strong> User enables document retrieval</li>
+                    <li><strong>Send Query:</strong> User asks a question in chat</li>
+                    <li><strong>RAG-Ultra Processing:</strong>
+                        <ul>
+                            <li>Retriever agent analyzes query</li>
+                            <li>Selects minimal metadata fields needed</li>
+                            <li>Searches across all selected documents</li>
+                            <li>Generates answer with citations</li>
+                        </ul>
+                    </li>
+                    <li><strong>Display Results:</strong> Answer shown with expandable citations</li>
+                </ol>
+        
+                <h3>17.5. API Endpoints</h3>
+                <h4>17.5.1. Document Upload</h4>
+                <div class="code-block">
+        <strong>POST</strong> /api/documents/upload
+        <strong>Content-Type:</strong> multipart/form-data
+        <strong>Body:</strong>
+          - file: File (PDF, DOCX, PPTX, TXT)
+          - extractionModel: string (e.g., "gpt-4o")
+        
+        <strong>Response:</strong>
+        {
+          "jobId": "uuid",
+          "documentId": "uuid",
+          "filename": "report.pdf",
+          "status": "queued"
+        }
+                </div>
+        
+                <h4>17.5.2. Processing Status</h4>
+                <div class="code-block">
+        <strong>GET</strong> /api/documents/process/{jobId}/status
+        
+        <strong>Response:</strong>
+        {
+          "status": "processing",
+          "progress": {
+            "stage": "Generating page metadata...",
+            "current": 15,
+            "total": 30,
+            "message": "Processing page 15 of 30"
+          },
+          "logs": [
+            "2024-01-15 10:30:15 - Started processing document.pdf",
+            "2024-01-15 10:30:16 - Extracted text from 30 pages",
+            "2024-01-15 10:30:45 - Converted 30 pages to images",
+            "2024-01-15 10:31:02 - Generating metadata for page 15..."
+          ]
+        }
+                </div>
+        
+                <h4>17.5.3. Start Processing</h4>
+                <div class="code-block">
+        <strong>POST</strong> /api/documents/process/{jobId}/start
+        <strong>Body:</strong>
+        {
+          "documentId": "uuid"
+        }
+        
+        <strong>Response:</strong>
+        {
+          "success": true,
+          "message": "Processing started"
+        }
+                </div>
+        
+                <h4>17.5.4. Modified Chat Endpoint</h4>
+                <div class="code-block">
+        <strong>POST</strong> /api/chat
+        <strong>Body:</strong>
+        {
+          "message": "What are the key findings in the reports?",
+          "conversation_history": [...],
+          "model": "gpt-4o",
+          "session_id": "uuid",
+          "useDocuments": true,              // Enable RAG-Ultra
+          "selectedDocumentIds": ["uuid1", "uuid2"]  // Documents to search
+        }
+        
+        <strong>Response:</strong>
+        {
+          "response": "Based on the documents, the key findings are...",
+          "model_used": "gpt-4o",
+          "session_id": "uuid",
+          "citations": [
+            {
+              "document": "Q4_Report.pdf",
+              "page": 12,
+              "snippet": "Revenue increased by 23% year-over-year..."
+            }
+          ],
+          "documentsUsed": ["Q4_Report.pdf", "Analysis.docx"]
+        }
+                </div>
+        
+                <h3>17.6. Backend Implementation Details</h3>
+                <h4>17.6.1. Document Processor Class</h4>
+                <div class="code-block">
+        class DocumentProcessor:
+            def __init__(self, session_id: str):
+                self.session_id = session_id
+                self.jobs = {}  # In-memory job tracking
+                
+            async def process_document(self, file_path: str, model: str, job_id: str):
+                """Process document with progress tracking"""
+                try:
+                    # Stage 1: Text extraction
+                    self.update_progress(job_id, "Extracting text from document...", 0, 100)
+                    page_texts = convert_document_to_text(file_path)
+                    
+                    # Stage 2: Image conversion
+                    self.update_progress(job_id, "Converting pages to images...", 0, len(page_texts))
+                    page_images = convert_document_pages_to_images(
+                        document_path=file_path,
+                        callback=lambda p: self.update_progress(job_id, ...)
+                    )
+                    
+                    # Stage 3: Metadata generation
+                    self.update_progress(job_id, "Generating page metadata...", 0, len(page_texts))
+                    page_metadata = generate_batch_metadata(
+                        page_texts=page_texts,
+                        page_images=page_images,
+                        model=model,
+                        callback=lambda p: self.update_progress(job_id, ...)
+                    )
+                    
+                    # Stage 4: Document summary
+                    self.update_progress(job_id, "Creating document summary...", 0, 1)
+                    document_summary = generate_document_summary(page_metadata, model=model)
+                    
+                    # Assemble final metadata
+                    metadata = assemble_document_metadata(
+                        page_metadata=page_metadata,
+                        document_summary=document_summary,
+                        document_details=extract_document_details(page_metadata),
+                        page_images=page_images
+                    )
+                    
+                    return metadata
+                    
+                except Exception as e:
+                    self.jobs[job_id]['status'] = 'error'
+                    self.jobs[job_id]['error'] = str(e)
+                    raise
+                </div>
+        
+                <h4>17.6.2. Session-Based Job Management</h4>
+                <ul>
+                    <li><strong>Job Queue:</strong> Maximum 1 concurrent processing job per session</li>
+                    <li><strong>FIFO Processing:</strong> Additional jobs queued until slot available</li>
+                    <li><strong>Memory Management:</strong> Jobs tracked in memory per session</li>
+                    <li><strong>Cleanup:</strong> Completed jobs removed after metadata stored</li>
+                </ul>
+        
+                <h3>17.7. Frontend Implementation Details</h3>
+                <h4>17.7.1. State Management</h4>
+                <div class="code-block">
+        // React Context for Document Management
+        interface DocumentContextState {
+          documents: Document[];              // All processed documents
+          processingJobs: ProcessingJob[];    // Active/queued jobs
+          useDocumentContext: boolean;        // Toggle for chat integration
+          selectedDocumentIds: string[];      // All documents selected by default
+        }
+        
+        // Actions
+        type DocumentAction = 
+          | { type: 'ADD_JOB', job: ProcessingJob }
+          | { type: 'UPDATE_JOB_PROGRESS', jobId: string, progress: Progress }
+          | { type: 'COMPLETE_JOB', jobId: string, document: Document }
+          | { type: 'DELETE_DOCUMENT', documentId: string }
+          | { type: 'TOGGLE_DOCUMENT_CONTEXT' }
+          | { type: 'SET_SELECTED_DOCUMENTS', documentIds: string[] }
+                </div>
+        
+                <h4>17.7.2. IndexedDB Service</h4>
+                <div class="code-block">
+        // Using Dexie.js for IndexedDB management
+        class DocumentStorage {
+          private db: Dexie;
+          
+          constructor() {
+            this.db = new Dexie('RAGUltraDocuments');
+            this.db.version(1).stores({
+              documents: 'id, filename, uploadDate, status',
+              processingJobs: 'id, documentId, status'
+            });
+          }
+          
+          async addDocument(document: Document): Promise<void> {
+            await this.db.documents.add(document);
+          }
+          
+          async getDocuments(): Promise<Document[]> {
+            return await this.db.documents.toArray();
+          }
+          
+          async deleteDocument(id: string): Promise<void> {
+            await this.db.documents.delete(id);
+          }
+          
+          // Storage quota management
+          async checkStorageQuota(): Promise<{used: number, total: number}> {
+            if ('storage' in navigator && 'estimate' in navigator.storage) {
+              const estimate = await navigator.storage.estimate();
+              return {
+                used: estimate.usage || 0,
+                total: estimate.quota || 0
+              };
+            }
+            return { used: 0, total: 0 };
+          }
+        }
+                </div>
+        
+                <h4>17.7.3. Citation Display Component</h4>
+                <div class="code-block">
+        const CitationBlock: React.FC<{citations: Citation[]}> = ({ citations }) => {
+          const [expanded, setExpanded] = useState(false);
+          
+          return (
+            &lt;Box borderWidth="1px" borderRadius="md" p={2} mt={2}&gt;
+              &lt;Flex 
+                justify="space-between" 
+                align="center" 
+                cursor="pointer"
+                onClick={() => setExpanded(!expanded)}
+              &gt;
+                &lt;Text fontSize="sm" color="gray.600"&gt;
+                  📄 {citations.length} source(s) referenced
+                &lt;/Text&gt;
+                &lt;Icon name={expanded ? "chevron-up" : "chevron-down"} /&gt;
+              &lt;/Flex&gt;
+              
+              {expanded && (
+                &lt;VStack align="stretch" mt={3} spacing={2}&gt;
+                  {citations.map((citation, idx) => (
+                    &lt;Box key={idx} p={2} bg="gray.50" borderRadius="md"&gt;
+                      &lt;Text fontWeight="bold"&gt;{citation.document}&lt;/Text&gt;
+                      &lt;Text fontSize="sm" color="gray.600"&gt;Page {citation.page}&lt;/Text&gt;
+                      {citation.snippet && (
+                        &lt;Text fontSize="sm" mt={1}&gt;"{citation.snippet}"&lt;/Text&gt;
+                      )}
+                    &lt;/Box&gt;
+                  ))}
+                &lt;/VStack&gt;
+              )}
+            &lt;/Box&gt;
+          );
+        };
+                </div>
+        
+                <h3>17.8. Performance Considerations</h3>
+                <ul>
+                    <li><strong>Chunking:</strong> Large documents processed in chunks to prevent memory issues</li>
+                    <li><strong>Lazy Loading:</strong> Document metadata loaded on-demand in explorer</li>
+                    <li><strong>Image Optimization:</strong> Page images stored at 150 DPI for balance of quality and size</li>
+                    <li><strong>Parallel Processing:</strong> Multiple pages processed concurrently where possible</li>
+                    <li><strong>Storage Limits:</strong> Monitor IndexedDB quota and warn users when approaching limits</li>
+                </ul>
+        
+                <h3>17.9. Error Handling</h3>
+                <ul>
+                    <li><strong>Upload Failures:</strong> Retry mechanism with exponential backoff</li>
+                    <li><strong>Processing Errors:</strong> Detailed error logs available to user</li>
+                    <li><strong>Storage Errors:</strong> Graceful degradation when IndexedDB unavailable</li>
+                    <li><strong>LLM Failures:</strong> Fallback to alternative models if primary fails</li>
+                    <li><strong>Timeout Handling:</strong> 30-minute timeout for document processing</li>
+                </ul>
+        
+                <h3>17.10. Security Considerations</h3>
+                <ul>
+                    <li><strong>File Validation:</strong> Strict file type and size validation</li>
+                    <li><strong>Content Sanitization:</strong> Sanitize extracted text before display</li>
+                    <li><strong>Session Isolation:</strong> Documents isolated per browser session</li>
+                    <li><strong>No Server Storage:</strong> All document data remains client-side</li>
+                    <li><strong>API Key Protection:</strong> LLM keys never exposed to frontend</li>
+                </ul>
+        
+                <h3>17.11. Implementation Phases</h3>
+                <h4>Phase 1: Backend Infrastructure (Week 1)</h4>
+                <ol>
+                    <li>Create document processing endpoints</li>
+                    <li>Implement session-based job tracking</li>
+                    <li>Integrate RAG-Ultra with progress callbacks</li>
+                    <li>Add document context to chat endpoint</li>
+                </ol>
+        
+                <h4>Phase 2: Frontend Storage (Week 1)</h4>
+                <ol>
+                    <li>Set up IndexedDB with Dexie.js</li>
+                    <li>Create storage service for documents</li>
+                    <li>Implement storage quota management</li>
+                    <li>Add migration support</li>
+                </ol>
+        
+                <h4>Phase 3: Upload & Processing UI (Week 2)</h4>
+                <ol>
+                    <li>Build document modal structure</li>
+                    <li>Implement file upload with drag & drop</li>
+                    <li>Create progress tracking UI</li>
+                    <li>Add job logs viewer</li>
+                </ol>
+        
+                <h4>Phase 4: Document Explorer (Week 2)</h4>
+                <ol>
+                    <li>Build document list view</li>
+                    <li>Create document detail viewer</li>
+                    <li>Implement page browser with images</li>
+                    <li>Add delete functionality</li>
+                </ol>
+        
+                <h4>Phase 5: Chat Integration (Week 3)</h4>
+                <ol>
+                    <li>Add document context toggle</li>
+                    <li>Modify chat to use RAG-Ultra when enabled</li>
+                    <li>Implement citation display</li>
+                    <li>Add document usage indicators</li>
+                </ol>
+        
+                <h4>Phase 6: Polish & Testing (Week 3)</h4>
+                <ol>
+                    <li>Error handling and recovery</li>
+                    <li>Performance optimization</li>
+                    <li>UI/UX refinements</li>
+                    <li>Cross-browser testing</li>
+                </ol>
+        
+                <h3>17.12. Future Enhancements</h3>
+                <ul>
+                    <li><strong>Advanced Search:</strong> Full-text search within document metadata</li>
+                    <li><strong>Document Comparison:</strong> Compare insights across multiple documents</li>
+                    <li><strong>Export Functionality:</strong> Export processed metadata and summaries</li>
+                    <li><strong>Collaborative Features:</strong> Share document sets via shareable links</li>
+                    <li><strong>Additional File Types:</strong> Support for Excel, CSV, and other formats</li>
+                    <li><strong>Custom Metadata Fields:</strong> Allow users to define custom extraction fields</li>
+                </ul>
+            </div>
+        
+            <div class="section">
+                
+    </div>
+
+</body>
+</html>

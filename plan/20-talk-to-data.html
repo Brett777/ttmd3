@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20. 'Talk to My Data' Feature - Agentic Chat Application</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        ul {
+            list-style-type: square;
+        }
+        .highlight {
+            background-color: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .nav-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-header a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .nav-header a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+        .model-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .provider-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .provider-card h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .provider-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+        .provider-card ul li {
+            background-color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-note {
+            font-size: 0.9em;
+            color: #5a6470;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9f5fd;
+            border: 1px solid #aed6f1;
+        }
+        .tool-note code {
+            background-color: #d4e6f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        .page-explorer-wireframe { margin: 20px 0; border: 2px solid #27ae60; padding: 20px; border-radius: 8px; background: #f2fef7; }
+        .page-explorer-container { display: flex; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: #fff; min-height: 450px; }
+        .page-explorer-sidebar { width: 200px; border-right: 1px solid #ddd; padding: 10px; overflow-y: auto; background: #f9f9f9; }
+        .page-explorer-main { flex: 1; padding: 20px; }
+        .thumbnail-item { border: 1px solid #ccc; border-radius: 5px; padding: 8px; margin-bottom: 10px; cursor: pointer; text-align: center; background: #fff; }
+        .thumbnail-item.selected { border-color: #3498db; background: #eaf5ff; box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); }
+        .thumbnail-img { width: 100%; height: 120px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #888; border-radius: 4px; margin-bottom: 5px; }
+        .detail-view-img { width: 100%; max-height: 300px; background: #e0e0e0; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ccc; }
+        .detail-view-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #aaa; }
+        .detail-view-placeholder-icon { font-size: 40px; margin-bottom: 10px; }
+        .detail-actions { margin-bottom: 10px; text-align: right; }
+        .detail-action-btn { background: #f0f0f0; border: 1px solid #ccc; padding: 4px 10px; border-radius: 4px; font-size: 12px; cursor: pointer; margin-left: 5px; }
+        .accordion { margin-top: 10px; }
+        .accordion-item { border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; background: #fff; }
+        .accordion-header { background: #f7f7f7; padding: 10px 15px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-content { padding: 15px; border-top: 1px solid #ddd; display: none; }
+        .accordion-header::after { content: '+'; font-size: 1.3em; color: #888; }
+        .accordion-item.expanded .accordion-header::after { content: '−'; }
+        .accordion-item.expanded .accordion-content { display: block; }
+        .data-modal-wireframe { margin: 20px 0; border: 2px solid #8e44ad; padding: 20px; border-radius: 8px; background: #f9f2ff; }
+        .data-panel-card { border: 1px solid #ccc; border-radius: 8px; margin-top: 15px; padding: 15px; background: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .sql-editor-mockup { background: #2d2d2d; color: #f1f1f1; border-radius: 4px; padding: 10px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 13px; white-space: pre; border: 1px solid #444; }
+        .results-table-mockup { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .results-table-mockup th, .results-table-mockup td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 13px; }
+        .results-table-mockup th { background: #f2f2f2; font-weight: 600; }
+        .chart-canvas-mockup { background: #f7f7f7; border: 1px dashed #ccc; text-align: center; padding: 40px 20px; color: #888; margin-top: 15px; border-radius: 4px; }
+        .tech-table { width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; }
+        .tech-table th, .tech-table td { border-bottom: 1px solid #dee2e6; padding: 12px 15px; text-align: left; }
+        .tech-table tr:last-child th, .tech-table tr:last-child td { border-bottom: none; }
+        .tech-table th { background-color: #f8f9fa; font-weight: 600; }
+        .tech-table td code { background-color: #e9ecef; padding: 3px 6px; border-radius: 4px; }
+        .uploaded-files-section { padding: 15px; background: #fdfcff; border-bottom: 1px solid #e0e0e0; }
+        .uploaded-files-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .uploaded-files-header h6 { margin: 0; font-size: 1em; color: #333; }
+        .total-size-info { font-size: 0.9em; font-weight: 500; color: #555; }
+        .file-list { list-style-type: none; padding: 0; margin: 0; max-height: 150px; overflow-y: auto; }
+        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border: 1px solid #e0e0e0; border-radius: 6px; margin-bottom: 8px; background: #fff; cursor: pointer; }
+        .file-item.selected { border-color: #8e44ad; background-color: #f9f2ff; }
+        .file-name { font-weight: 600; color: #333; }
+        .file-metadata { font-size: 0.85em; color: #666; }
+        .data-viewer-container { padding: 20px; }
+        .data-viewer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .data-viewer-title { margin: 0; font-size: 1.1em; }
+        .pagination-controls { display: flex; align-items: center; gap: 10px; font-size: 0.9em; }
+        .pagination-controls select, .pagination-controls button { padding: 4px 8px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+        .data-table-wrapper { overflow-x: auto; }
+        .data-table th { cursor: pointer; position: relative; }
+        .data-table th:hover { background: #e8e8e8; }
+        .sort-icon { font-size: 0.8em; margin-left: 5px; color: #888; }
+        .filter-icon { margin-left: 4px; cursor: pointer; color: #888; }
+        .db-connection-view { padding: 20px; }
+        .db-connector-selector { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+        .connector-btn { padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .connector-btn.active { border-color: #8e44ad; background: #f9f2ff; color: #8e44ad; }
+        .connector-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-weight: 500; margin-bottom: 5px; font-size: 0.9em; }
+        .form-group input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .full-width { grid-column: 1 / -1; }
+        .auth-tabs { display: flex; gap: 5px; margin-bottom: 10px; }
+        .auth-tab { padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.9em; border: 1px solid transparent; }
+        .auth-tab.active { background: #e9d8f3; border-color: #d1b3e6; }
+        .db-navigator { display: flex; gap: 15px; border-top: 1px solid #ddd; margin-top: 20px; padding-top: 20px; min-height: 250px; }
+        .nav-column { flex: 1; border: 1px solid #e0e0e0; border-radius: 6px; background: #fff; }
+        .nav-column-header { padding: 10px; border-bottom: 1px solid #e0e0e0; font-weight: 600; background: #f9f9f9; }
+        .nav-list { list-style-type: none; padding: 10px; margin: 0; max-height: 200px; overflow-y: auto; }
+        .nav-list-item { padding: 8px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .nav-list-item:hover { background: #f0f0f0; }
+        .nav-list-item.selected { background: #e9d8f3; font-weight: 500; }
+        .file-upload-btn { display: inline-block; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background: #f0f0f0; cursor: pointer; font-size: 0.9em; }
+        .db-preview-section { margin-top: 20px; border-top: 2px solid #ddd; padding-top: 20px; }
+        .explanation-box { background: #f0f7ff; border: 1px solid #aed6f1; border-left-width: 4px; border-left-color: #4a90e2; padding: 12px; border-radius: 6px; font-size: 14px; margin-top: 10px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <div class="nav-header">
+            <a href="index.html">← Table of Contents</a>
+            <div class="nav-links">
+                <a href="19-chat-history.html">← Previous</a>
+                <span style="color: #ccc;">Next</span>
+            </div>
+        </div>
+        
+        <h2 id="talk-to-data">20. "Talk to My Data" Feature</h2>
+                <h3>20.1. Overview</h3>
+                <p>This feature extends the application's agentic capabilities by allowing users to connect their own structured datasets (CSV/Excel files or databases) and query them using natural language. It provides an in-browser analytics experience, transforming the chat into an interactive data exploration tool without requiring users to write code.</p>
+                <div class="highlight">
+                    <strong>Key Capability:</strong> Enable users to ask questions of their structured data, receive answers synthesized from SQL queries, and view visualizations—all within the conversational interface. For file uploads, data processing occurs entirely in the browser via DuckDB-WASM, enhancing privacy as well as performance.
+                </div>
+        
+                <h3>20.2. User Experience & UI Components</h3>
+                <ul>
+                    <li><strong>Data Icon:</strong> A new "data" icon (e.g., 📊) will be added to the input bar next to the existing image and document upload icons.</li>
+                    <li><strong>Data Connection Modal:</strong> Clicking the data icon opens a modal for connecting to a data source.</li>
+                    <li><strong>In-Chat Data Panel:</strong> After a successful connection, the agent can generate and display SQL queries, data previews, and charts in a collapsible inline panel within the chat.</li>
+                    <li><strong>Chat History Persistence:</strong> All data-related interactions, including SQL queries, chart configurations, and AI summaries, are saved to the chat history, enabling context-aware follow-up questions.</li>
+                </ul>
+        
+                <h3>20.3. Frontend Architecture & Technologies</h3>
+                <ul>
+                    <li><strong>Framework:</strong> React (reusing the existing frontend stack).</li>
+                    <li><strong>Browser-based SQL:</strong> DuckDB-WASM for high-performance, in-browser analytics on uploaded CSV/Excel files. This ensures data privacy as files are not sent to a server.</li>
+                    <li><strong>Charting:</strong> Chart.js with the `chartjs-plugin-zoom` for creating interactive, pannable, and zoomable charts.</li>
+                    <li><strong>SQL Editor:</strong> A lightweight, embeddable code editor like CodeMirror or Monaco Editor for displaying and editing generated SQL.</li>
+                    <li><strong>Modal Library:</strong> Re-use existing modal components or a library like React-Modal for the data connection flow.</li>
+                    <li><strong>State Management:</strong> React Context or a similar state management solution to track active data connections and session state.</li>
+                </ul>
+        
+                <h3>20.4. Backend Components & Tools</h3>
+                <ul>
+                    <li><strong>API Endpoints:</strong>
+                        <ul>
+                            <li><code>POST /generate-sql</code>: Accepts a user prompt and table metadata (schema). Returns a JSON object containing the generated SQL query and a natural-language explanation.</li>
+                            <li><code>POST /generate-visualizations</code>: Accepts a prompt, SQL query, schema, and sample data. Returns a Chart.js configuration JSON for rendering a relevant visualization.</li>
+                        </ul>
+                    </li>
+                    <li><strong>AI Integrations:</strong> The OpenAI API will be used to power the SQL and chart generation endpoints.</li>
+                    <li><strong>Database Connectors:</strong> For live database connections, the backend will include secure connectors for platforms like Snowflake, BigQuery, and generic JDBC/ODBC sources.</li>
+                    <li><strong>Security:</strong> Standard security practices including CORS, token-based authentication for backend APIs, and secure, encrypted storage for any persisted database credentials.</li>
+                </ul>
+        
+                <h3>20.5. UI/UX Design and User Flow</h3>
+                <p>The user experience is designed to be intuitive, guiding the user from data connection to insight generation seamlessly. The core components are the Data Connection Modal and the In-Chat Analysis Panel.</p>
+        
+                <h4>Component 1: The Data Connection Modal</h4>
+                <p>Opened via the "Data" icon, this modal is the single entry point for providing data. It features two tabs for the different connection methods.</p>
+        
+                <h5>A) Upload File &amp; Explore</h5>
+                <p>For users with local files (CSV/Excel). The view allows for upload, metadata inspection, and a paginated data preview to ensure the data is correct before use.</p>
+                <div class="data-modal-wireframe">
+                    <h5>Wireframe: Data Connection Modal (File Upload &amp; Exploration View)</h5>
+                    <div class="rag-modal">
+                        <div class="rag-modal-header" style="background: #8e44ad;">
+                            <span>Connect to Data Source</span>
+                            <span style="cursor: pointer;">✕</span>
+                        </div>
+                        <div class="rag-tabs">
+                            <div class="rag-tab active">Upload File</div>
+                            <div class="rag-tab">Connect Database</div>
+                        </div>
+                        <div class="rag-content" style="padding: 0;">
+                            <!-- Section for listing uploaded files -->
+                            <div class="uploaded-files-section">
+                                <div class="uploaded-files-header">
+                                    <h6>Uploaded Files</h6>
+                                    <span class="total-size-info">Total Size: 25.7 MB</span>
+                                </div>
+                                <ul class="file-list">
+                                    <li class="file-item selected">
+                                        <span class="file-name">📄 sales_report_q3.csv</span>
+                                        <span class="file-metadata">1.2M rows, 15 cols, 18.2 MB</span>
+                                    </li>
+                                    <li class="file-item">
+                                        <span class="file-name">📄 customer_data.csv</span>
+                                        <span class="file-metadata">500K rows, 8 cols, 7.5 MB</span>
+                                    </li>
+                                     <li class="file-item">
+                                        <span class="file-name">➕ Add more files...</span>
+                                    </li>
+                                </ul>
+                            </div>
+        
+                            <!-- Section for viewing the selected file's data -->
+                            <div class="data-viewer-container">
+                                <div class="data-viewer-header">
+                                    <h5 class="data-viewer-title">Viewing: <strong>sales_report_q3.csv</strong></h5>
+                                    <div class="pagination-controls">
+                                        <span>Rows:</span>
+                                        <select>
+                                            <option>50</option>
+                                            <option selected>100</option>
+                                            <option>200</option>
+                                        </select>
+                                        <span>1-100 of 1.2M</span>
+                                        <button>&lt; Prev</button>
+                                        <button>Next &gt;</button>
+                                    </div>
+                                </div>
+                                <div class="data-table-wrapper">
+                                    <table class="results-table-mockup data-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-header-sortable">product_id <span class="sort-icon">↕️</span><span class="filter-icon">🔍</span></th>
+                                                <th class="table-header-sortable">product_name <span class="sort-icon">↕️</span><span class="filter-icon">🔍</span></th>
+                                                <th class="table-header-sortable">revenue <span class="sort-icon">🔽</span><span class="filter-icon">🔍</span></th>
+                                                <th class="table-header-sortable">sale_date <span class="sort-icon">↕️</span><span class="filter-icon">🔍</span></th>
+                                                <th class="table-header-sortable">region <span class="sort-icon">↕️</span><span class="filter-icon">🔍</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>WID-001</td><td>MegaWidget</td><td>$520.00</td><td>2023-07-01</td><td>North America</td></tr>
+                                            <tr><td>SPN-002</td><td>HyperSpanner</td><td>$485.00</td><td>2023-07-01</td><td>Europe</td></tr>
+                                            <tr><td>FLEX-003</td><td>FlexiGrommet</td><td>$310.00</td><td>2023-07-02</td><td>North America</td></tr>
+                                            <tr><td colspan="5" style="text-align: center; font-style: italic; color: #888;">... 95 more rows ...</td></tr>
+                                            <tr><td>GIG-005</td><td>GigaPiston</td><td>$195.50</td><td>2023-07-30</td><td>Asia</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rag-modal-footer" style="text-align: right; padding: 15px; border-top: 1px solid #e0e0e0;">
+                            <button class="detail-action-btn" style="padding: 8px 15px;">Done</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <h5>B) Connect to Database &amp; Explore</h5>
+                <p>For users connecting to live databases like Snowflake or BigQuery. This multi-step flow guides them through authentication and then provides a navigator to explore and select the specific tables or views they wish to query. The view also includes a data preview and a SQL tester for validation.</p>
+                <div class="data-modal-wireframe">
+                    <h5>Wireframe: Data Connection Modal (Connect to Database Flow)</h5>
+                    <div class="rag-modal">
+                        <div class="rag-modal-header" style="background: #8e44ad;">
+                            <span>Connect to Database</span>
+                            <span style="cursor: pointer;">✕</span>
+                        </div>
+                        <div class="rag-tabs">
+                            <div class="rag-tab">Upload File</div>
+                            <div class="rag-tab active">Connect Database</div>
+                        </div>
+                        <div class="db-connection-view">
+                            <!-- Step 1: Connector Selection & Authentication -->
+                            <div class="connector-selector">
+                                <button class="connector-btn active">❄️ Snowflake</button>
+                                <button class="connector-btn">BQ BigQuery</button>
+                                <button class="connector-btn">🔗 Generic SQL</button>
+                            </div>
+        
+                            <!-- Snowflake Form (Example) -->
+                            <div>
+                                <div class="auth-tabs">
+                                    <span class="auth-tab active">Credentials</span>
+                                    <span class="auth-tab">Key Pair</span>
+                                </div>
+                                <div class="connector-form-grid">
+                                    <div class="form-group"><label for="sf-account">Account</label><input id="sf-account" type="text" placeholder="xy12345.us-east-1"></div>
+                                    <div class="form-group"><label for="sf-warehouse">Warehouse</label><input id="sf-warehouse" type="text" placeholder="COMPUTE_WH"></div>
+                                    <div class="form-group"><label for="sf-user">Username</label><input id="sf-user" type="text" placeholder="user_name"></div>
+                                    <div class="form-group"><label for="sf-pass">Password</label><input id="sf-pass" type="password"></div>
+                                    <div class="form-group"><label for="sf-db">Database</label><input id="sf-db" type="text" placeholder="Optional"></div>
+                                    <div class="form-group"><label for="sf-schema">Schema</label><input id="sf-schema" type="text" placeholder="Optional"></div>
+                                </div>
+                                <button class="detail-action-btn" style="margin-top: 15px;">Test Connection</button>
+                            </div>
+        
+                            <!-- Step 2: Database Object Explorer (Shown after successful connection) -->
+                            <div class="db-navigator">
+                                <div class="nav-column">
+                                    <div class="nav-column-header">Schemas</div>
+                                    <ul class="nav-list">
+                                        <li class="nav-list-item selected">PUBLIC</li>
+                                        <li class="nav-list-item">SALES_DATA</li>
+                                        <li class="nav-list-item">MARKETING</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-column">
+                                    <div class="nav-column-header">Tables &amp; Views</div>
+                                    <ul class="nav-list">
+                                        <li class="nav-list-item"><label><input type="checkbox"> CUSTOMER_RECORDS</label></li>
+                                        <li class="nav-list-item"><label><input type="checkbox"> EMPLOYEE_DATA</label></li>
+                                        <li class="nav-list-item selected"><label><input type="checkbox" checked> SALES_Q3_2024</label></li>
+                                        <li class="nav-list-item"><label><input type="checkbox"> (view) REVENUE_BY_REGION</label></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-column">
+                                    <div class="nav-column-header">Selected Objects for Chat</div>
+                                    <ul class="nav-list">
+                                        <li class="nav-list-item">SALES_Q3_2024</li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                            <!-- Step 3: Data Preview & SQL Tester (Shown after selecting an object) -->
+                            <div class="db-preview-section">
+                                <div class="data-viewer-container" style="padding:0;">
+                                    <div class="data-viewer-header">
+                                        <h5 class="data-viewer-title">Previewing: <strong>SALES_Q3_2024</strong> <small>(first 5000 rows)</small></h5>
+                                        <div class="pagination-controls">
+                                            <span>Rows:</span>
+                                            <select>
+                                                <option>50</option>
+                                                <option selected>100</option>
+                                                <option>200</option>
+                                            </select>
+                                            <span>1-100 of 5000</span>
+                                            <button disabled>&lt; Prev</button>
+                                            <button>Next &gt;</button>
+                                        </div>
+                                    </div>
+                                    <div class="data-table-wrapper">
+                                        <table class="results-table-mockup data-table">
+                                            <thead><tr><th>SALE_ID</th><th>PRODUCT_ID</th><th>REVENUE</th></tr></thead>
+                                            <tbody>
+                                                <tr><td>S-1001</td><td>WID-001</td><td>$520.00</td></tr>
+                                                <tr><td>S-1002</td><td>SPN-002</td><td>$485.00</td></tr>
+                                                <tr><td colspan="3" style="text-align: center; font-style: italic; color: #888;">... 98 more rows ...</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                 <div class="sql-tester" style="margin-top: 20px;">
+                                    <h6 style="font-weight: bold; margin-bottom: 8px;">SQL Query Tester</h6>
+                                    <div class="sql-editor-mockup">-- Write a test query here
+        SELECT
+            region,
+            COUNT(DISTINCT customer_id) AS unique_customers
+        FROM SALES_Q3_2024
+        GROUP BY region
+        ORDER BY unique_customers DESC;
+                                    </div>
+                                    <button class="detail-action-btn" style="margin-top: 10px;">Run Query</button>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="rag-modal-footer" style="text-align: right; padding: 15px; border-top: 1px solid #e0e0e0;">
+                            <button class="detail-action-btn" style="padding: 8px 15px;">Confirm Selection</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <h4>Component 2: The In-Chat Analysis Panel</h4>
+                <p>This panel appears within the conversation after a data-related query is made. It's designed for clarity, presenting the natural-language explanation upfront, while keeping the technical SQL details accessible but collapsed by default. The results table and chart are always visible for immediate analysis.</p>
+                <div class="data-modal-wireframe">
+                    <h5>Wireframe: In-Chat Data Analysis Panel</h5>
+                    <div class="data-panel-card">
+                        <p><strong>You:</strong> Show me the top 5 products by revenue.</p>
+                        <div class="message assistant">
+                            <div class="message-content">
+                                <p>Of course. Here are the top 5 products by revenue from your dataset:</p>
+                                
+                                <!-- Explanation Section (Always Visible) -->
+                                <div class="explanation-box">
+                                    To find the top 5 products by revenue, I will sum the revenue for each product and then sort them in descending order, taking the first 5 results.
+                                </div>
+        
+                                <!-- Collapsible SQL Block -->
+                                <details style="margin-bottom: 15px;">
+                                    <summary style="cursor: pointer; font-weight: 500; color: #8e44ad;">View Generated SQL</summary>
+                                    <div style="margin-top: 10px;">
+                                        <div class="sql-editor-mockup">
+        SELECT
+          product_name,
+          SUM(revenue) AS total_revenue
+        FROM sales_data
+        GROUP BY product_name
+        ORDER BY total_revenue DESC
+        LIMIT 5;</div>
+                                        <div style="margin-top: 10px; text-align: right;">
+                                            <button class="detail-action-btn">Run Query</button>
+                                            <button class="detail-action-btn">Regenerate</button>
+                                        </div>
+                                    </div>
+                                </details>
+        
+                                <!-- Results & Chart (Always Visible) -->
+                                <h6 style="font-weight: bold; margin-top: 15px;">Results Preview</h6>
+                                <table class="results-table-mockup">
+                                    <thead><tr><th>product_name</th><th>total_revenue</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>MegaWidget</td><td>$5,200,000</td></tr>
+                                        <tr><td>HyperSpanner</td><td>$4,850,000</td></tr>
+                                        <tr><td>FlexiGrommet</td><td>$3,100,000</td></tr>
+                                        <tr><td>TurboEncabulator</td><td>$2,500,000</td></tr>
+                                        <tr><td>GigaPiston</td><td>$1,950,000</td></tr>
+                                    </tbody>
+                                </table>
+                                <h6 style="font-weight: bold; margin-top: 15px;">Visualization</h6>
+                                <div class="chart-canvas-mockup">
+                                    (Interactive Bar Chart Canvas)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <h4>User Journey</h4>
+                <p>The following user journeys illustrate how a user would interact with these components.</p>
+                
+                <h5>User Journey 1: File Upload</h5>
+                <ol>
+                    <li><strong>Discovery:</strong> User clicks the "Data" icon, triggering a tooltip: "Ask questions of your CSV files or databases."</li>
+                    <li><strong>Onboarding:</strong> The Data Connection modal appears. The user stays on the default "Upload File" tab.</li>
+                    <li><strong>Connection &amp; Exploration:</strong> User uploads a sales report CSV. The modal shows the file's metadata and a paginated data preview. The user can perform light sorting and filtering before clicking "Done".</li>
+                    <li><strong>First Query:</strong> The user types, "Show me the top 5 products by revenue."</li>
+                    <li><strong>AI Workflow:</strong>
+                        <ul>
+                            <li>The application detects the data context and calls the <code>/generate-sql</code> endpoint.</li>
+                            <li>The returned SQL is executed by DuckDB-WASM directly in the browser.</li>
+                            <li>The results are used to call the <code>/generate-visualizations</code> endpoint, which returns a Chart.js config.</li>
+                            <li>An inline data panel appears, showing the editable SQL, a preview table of the results, and the rendered bar chart.</li>
+                            <li>The agent provides a natural-language summary: "Here are your top 5 products by revenue, led by the MegaWidget."</li>
+                        </ul>
+                    </li>
+                    <li><strong>Iteration:</strong> The user either edits the SQL directly to change the limit to 10 or asks a follow-up question like, "Now group those by region," starting a new analysis cycle.</li>
+                </ol>
+        
+                <h5>User Journey 2: Database Connection</h5>
+                <ol>
+                    <li><strong>Discovery:</strong> User clicks the "Data" icon.</li>
+                    <li><strong>Onboarding:</strong> The Data Connection modal appears. The user selects the "Connect Database" tab.</li>
+                    <li><strong>Connection &amp; Exploration:</strong> The user selects "Snowflake," enters their credentials, and connects. Upon success, the modal displays a database navigator. When the user selects a table, a paginated preview and SQL tester appear, allowing them to validate the data before finalizing their selection.</li>
+                    <li><strong>First Query:</strong> The user types, "Show me the top 5 products by revenue from the selected tables."</li>
+                    <li><strong>AI Workflow:</strong>
+                        <ul>
+                            <li>The application detects the data context and calls the <code>/generate-sql</code> endpoint with the schema of the selected tables.</li>
+                            <li>The returned SQL is sent to the backend to be executed against the live database.</li>
+                            <li>The results are used to call the <code>/generate-visualizations</code> endpoint.</li>
+                            <li>The In-Chat Analysis Panel appears with the explanation, SQL, results table, and chart.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Iteration:</strong> The user asks a follow-up question, or edits the SQL in the panel and reruns the query against the live database.</li>
+                </ol>
+                
+                <h3>20.6. Technology Components</h3>
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Component / Library</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="5"><strong>Frontend</strong></td>
+                            <td>React, Context API</td>
+                            <td>Reuse existing chat UI patterns and state management.</td>
+                        </tr>
+                        <tr>
+                            <td><code>DuckDB-WASM</code></td>
+                            <td>High-performance, in-browser SQL engine for zero-latency queries on file uploads. Ensures data privacy.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Chart.js</code> + zoom/pan plugin</td>
+                            <td>For interactive and responsive data visualizations.</td>
+                        </tr>
+                        <tr>
+                            <td>CodeMirror or Monaco Editor</td>
+                            <td>Provides a rich, editable SQL snippet editor with syntax highlighting.</td>
+                        </tr>
+                        <tr>
+                            <td>React-Modal or AntD Modal</td>
+                            <td>Manages the data connection and inline data analysis panels.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>Backend</strong></td>
+                            <td>FastAPI / Node.js</td>
+                            <td>Exposes <code>/generate-sql</code> and <code>/generate-visualizations</code> endpoints.</td>
+                        </tr>
+                        <tr>
+                            <td>OpenAI API</td>
+                            <td>The core LLM used for generating SQL queries and chart configurations from natural language.</td>
+                        </tr>
+                        <tr>
+                            <td>Snowflake/BigQuery SDKs</td>
+                            <td>Enables secure, server-side connections to remote data warehouses.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Authentication</strong></td>
+                            <td>JWT + OAuth for cloud DB creds</td>
+                            <td>Securely manages user tokens for accessing cloud database services.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage</strong></td>
+                            <td>Encrypted secrets vault</td>
+                            <td>For securely persisting database credentials on the server if a user chooses to save them.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment</strong></td>
+                            <td>Docker, Kubernetes</td>
+                            <td>Ensures scalable and resilient backend services.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "id": "cc76f1c5-caaf-42c0-8327-f90fe7d5f642",
+  "documentId": "cc76f1c5-caaf-42c0-8327-f90fe7d5f642",
+  "filename": "270 Park AV Digital Signage (2).pdf",
+  "status": "queued",
+  "progress": {
+    "stage": "Queued",
+    "current": 0,
+    "total": 0,
+    "message": "Waiting to start..."
+  },
+  "logs": [
+    "2025-06-12 21:17:22 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\f6d8044f-e56d-4e31-a62f-3225016f81eb\\cc76f1c5-caaf-42c0-8327-f90fe7d5f642.json"
+  ],
+  "startTime": "2025-06-12T21:17:22.595481",
+  "endTime": null,
+  "error": null,
+  "metadata": null,
+  "temp_file_path": "C:\\Users\\BRETTO~1\\AppData\\Local\\Temp\\tmpvdf0vzpt.pdf",
+  "extraction_model": "gpt-4o"
+}

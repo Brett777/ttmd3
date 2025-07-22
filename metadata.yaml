@@ -1,0 +1,48 @@
+---
+name: Agentic Chat Application
+version: 1.0.0
+type: inference
+targetType: textgeneration
+runtimeParameterDefinitions:
+  - fieldName: XAI_API_KEY
+    type: credential
+    credentialType: api_token
+    description: xAI API key
+  - fieldName: ANTHROPIC_API_KEY
+    type: credential
+    credentialType: api_token
+    description: Anthropic API key
+  - fieldName: GEMINI_API_KEY
+    type: credential
+    credentialType: api_token
+    description: Gemini API key
+  - fieldName: OPENAI_API_KEY
+    type: credential
+    credentialType: api_token
+    description: OpenAI API key
+  - fieldName: COHERE_API_KEY
+    type: credential
+    credentialType: api_token
+    description: Cohere API key
+  - fieldName: DEEPSEEK_API_KEY
+    type: credential
+    credentialType: api_token
+    description: Deepseek API key
+  - fieldName: PERPLEXITYAI_API_KEY
+    type: credential
+    credentialType: api_token
+    description: Perplexity AI API key
+  - fieldName: HUGGINGFACE_API_KEY
+    type: credential
+    credentialType: api_token
+    description: Hugging Face API key
+  - fieldName: DATAROBOT_API_TOKEN
+    type: credential
+    credentialType: api_token
+    description: DataRobot API token
+  - fieldName: DATAROBOT_AGENT_DEPLOYMENT_ID
+    type: string
+    description: DataRobot Agent deployment ID 
+  - fieldName: DATAROBOT_AGENT_DEPLOYMENT_ID_2
+    type: string    
+    description: DataRobot Agent deployment ID 2

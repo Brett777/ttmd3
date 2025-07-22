@@ -1,0 +1,395 @@
+{
+  "id": "f03ebc36-669a-4a7a-a47e-dc5abb12992d",
+  "documentId": "f03ebc36-669a-4a7a-a47e-dc5abb12992d",
+  "filename": "easton grade 9 semester 2 progress report.pdf",
+  "status": "completed",
+  "progress": {
+    "stage": "Finalizing...",
+    "current": 1,
+    "total": 1,
+    "message": "Finalizing... (1/1)"
+  },
+  "logs": [
+    "2025-06-13 01:04:00 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\4a2f3929-f814-4e65-bcbe-dd9c9b8f1ff0\\f03ebc36-669a-4a7a-a47e-dc5abb12992d.json",
+    "2025-06-13 01:04:00 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\4a2f3929-f814-4e65-bcbe-dd9c9b8f1ff0\\f03ebc36-669a-4a7a-a47e-dc5abb12992d.json",
+    "2025-06-13 01:04:00 - Started processing easton grade 9 semester 2 progress report.pdf",
+    "2025-06-13 01:04:00 - Extracting text from document... (0/100)",
+    "2025-06-13 01:04:00 - Extracted text from 4 pages",
+    "2025-06-13 01:04:00 - Converting pages to images... (0/4)",
+    "2025-06-13 01:04:00 - Could not convert pages to images: convert_document_pages_to_images() got an unexpected keyword argument 'callback'. Continuing without images.",
+    "2025-06-13 01:04:00 - Generating page metadata... (0/4)",
+    "2025-06-13 01:04:15 - Generating page metadata... (3/4)",
+    "2025-06-13 01:04:16 - Generating page metadata... (4/4)",
+    "2025-06-13 01:04:17 - Generating page metadata... (2/4)",
+    "2025-06-13 01:04:17 - Generating page metadata... (5/4)",
+    "2025-06-13 01:04:17 - Generated metadata for 4 pages",
+    "2025-06-13 01:04:17 - Extracting document details... (0/1)",
+    "2025-06-13 01:04:17 - Extracting document details... (1/1)",
+    "2025-06-13 01:04:17 - Creating document summary... (0/1)",
+    "2025-06-13 01:04:32 - Creating document summary... (1/1)",
+    "2025-06-13 01:04:32 - Generated document summary",
+    "2025-06-13 01:04:32 - Finalizing... (0/1)",
+    "2025-06-13 01:04:32 - Finalizing... (1/1)",
+    "2025-06-13 01:04:32 - Processing completed successfully",
+    "2025-06-13 01:04:32 - Saved full job state to cache: C:\\Users\\BrettOlmstead\\PycharmProjects\\agent-demo\\backend\\cache\\4a2f3929-f814-4e65-bcbe-dd9c9b8f1ff0\\f03ebc36-669a-4a7a-a47e-dc5abb12992d.json",
+    "2025-06-13 01:04:32 - Cleaned up temporary file: C:\\Users\\BRETTO~1\\AppData\\Local\\Temp\\tmpm21awz_l.pdf"
+  ],
+  "startTime": "2025-06-13T01:04:00.071974",
+  "endTime": "2025-06-13T01:04:32.440895",
+  "error": null,
+  "metadata": {
+    "document_details": {
+      "filename": "easton grade 9 semester 2 progress report.pdf",
+      "file_type": "pdf",
+      "size_kb": 126.2392578125,
+      "last_modified": 1749791040.0749779,
+      "total_pages": 4,
+      "title": "Easton Grade 9 Semester 2 Progress Report",
+      "language": "en",
+      "author": "Unknown",
+      "date": "Unknown"
+    },
+    "document_summary": {
+      "short_summary": "The document is a Provincial Report Card for Grade 9 student Easton David Olmstead, detailing his performance in various courses during the second semester of the 2024-2025 academic year. It includes grades, learning skills, teacher comments, and requests for parent-teacher interviews. The report card is issued by Maplewood Secondary School under the Ottawa-Carleton District School Board.",
+      "detailed_summary": "This Provincial Report Card is an essential academic document for Easton David Olmstead, a Grade 9 student at Maplewood Secondary School, which falls under the Ottawa-Carleton District School Board. It provides a comprehensive overview of Easton's academic performance during the second semester, first term of the 2024-2025 academic year. The report card is dated April 28, 2025, and outlines Easton's grades and learning skills for five courses: Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, Mathematics, and Science.\n\nEach course section includes percentage marks, course medians, and qualitative assessments of learning skills, covering areas such as Responsibility, Independent Work, Initiative, Organization, Collaboration, and Self-Regulation. Teachers have provided detailed comments on Easton's strengths and areas where he can improve, and have requested interviews with Easton's parents to discuss his academic progress further. This indicates a proactive approach to address any academic concerns and to support Easton's educational development.\n\nThe document also includes Easton's attendance records, noting the number of classes missed and times he was late, which could provide insights into his engagement with the school. Additionally, the report card is signed by the school's principal, Krista Hudson, and offers instructions for parents and students to retain the report for future reference. It is a crucial document that will be stored in Easton's Ontario Student Record for five years after he leaves school.\n\nFurthermore, the report card offers explanations of how to interpret the percentage marks and includes definitions for specific educational terms like ESL/ELD, IEP, and SHSM. This ensures that parents and guardians can fully understand the content and implications of the report card. Contact information for the school and school board is also provided, facilitating easy communication with educational authorities.",
+      "main_topics": [
+        "Student academic performance",
+        "Grade 9 curriculum",
+        "Learning skills evaluation",
+        "Teacher comments and feedback",
+        "Parent-teacher communication",
+        "Attendance records",
+        "Educational terms and definitions",
+        "School administration"
+      ],
+      "key_insights": [
+        "Easton is performing well overall with grades ranging from 78 to 88.",
+        "Teachers have identified strengths and areas for improvement for Easton.",
+        "Interviews with teachers have been requested to discuss Easton's progress.",
+        "Learning skills are assessed across various categories, indicating a holistic approach to education.",
+        "The report card serves as a significant document for Easton's academic record, to be kept in the Ontario Student Record."
+      ],
+      "total_token_count": 3281,
+      "total_pages": 4
+    },
+    "pages": {
+      "2": {
+        "one_sentence_summary": "This document is a provincial report card for Easton David Olmstead, detailing his academic performance and learning skills in various courses for the 2024-2025 semester.",
+        "full_summary": [
+          "The report card is for student Easton David Olmstead, grade 9, from Maplewood S.S., under the Ottawa-Carleton District School Board.",
+          "The report covers the second semester, term 1, for the 2024-2025 academic year, dated April 28, 2025.",
+          "Easton's courses include Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, Mathematics, and Science.",
+          "Marks and learning skills for each course are provided, along with teacher comments and areas for improvement.",
+          "Attendance records show the number of classes missed and times late for each course.",
+          "Teachers request interviews for all courses listed.",
+          "The principal of the school is Krista Hudson and the School Council Chair is Kirsty Edwards."
+        ],
+        "topics": [
+          "Education",
+          "Academic Performance",
+          "Learning Skills",
+          "Student Assessment",
+          "Secondary School",
+          "Report Card",
+          "Ontario Education System",
+          "Attendance",
+          "Teacher Feedback",
+          "Parental Communication"
+        ],
+        "keywords": [
+          "Easton David Olmstead",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Repertoire",
+          "Entrepreneurial Mindset",
+          "Canadian Geography",
+          "Mathematics",
+          "Science",
+          "Learning Skills",
+          "Attendance",
+          "Teacher Comments",
+          "Principal Krista Hudson",
+          "School Council Chair Kirsty Edwards",
+          "Interview Requests",
+          "Report Card"
+        ],
+        "key_information": [
+          "Easton's student number: 735-011-272",
+          "Grades and learning skills for each course are recorded.",
+          "All teachers have requested interviews.",
+          "The report card is part of Easton's Ontario Student Record (OSR).",
+          "The document emphasizes the need for regular practice and confidence-building in Easton's studies."
+        ],
+        "entities": [
+          "Easton David Olmstead",
+          "Krista Hudson",
+          "Kirsty Edwards",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Stittsville, ON",
+          "Ontario",
+          "April 28, 2025",
+          "Courses: Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, Mathematics, Science"
+        ],
+        "sentiment": "neutral",
+        "acronyms": {
+          "OEN": "Ontario Education Number",
+          "ESL/ELD": "English as a Second Language/English Literacy Development",
+          "IEP": "Individual Education Plan",
+          "SHSM": "Specialist High Skills Major",
+          "SS": "Secondary School",
+          "OSR": "Ontario Student Record"
+        },
+        "chapter_or_section": null,
+        "noteworthy_sentences": [
+          "Easton demonstrates good large ensemble skills and collaborates effectively with his peers.",
+          "Easton is a very creative thinker who takes his time to complete tasks and evaluations properly.",
+          "Shows considerable understanding of science concepts. Listens attentively in class and follows directions independently."
+        ],
+        "token_count": 650,
+        "visual_elements": "There are tables listing courses, percentage marks, medians, learning skills, comments, and attendance data. The document is structured with headers and subsections for clear organization.",
+        "raw_text": "Ministry of Education\nProvincial Report Card, Grades 9\u201312\nSemester\nReporting Period\nDate\n2024-2025\nS2T1\n4/28/2025\nStudent: Olmstead, Easton David\nOEN: 735-011-272\nGrade: 09\nHomeroom: 224\nCourses\nReporting Period\nPercentage Mark\nCourse Median\nCredit Earned\nLearning Skills and Work Habits\nResponsibility\nOrganization\nIndependent Work\nCollaboration\nInitiative\nSelf-Regulation\nComments\nStrengths/Next Steps for Improvement\nAttendance\nClasses Missed\nTotal Classes\nTimes Late\nCourse Title: Science\nCourse Code:SNC1W.-05\nTeacher:\nThivaharan, S.\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\n84 73.5 0.0\nG\nG\nG\nG\nS\nG\nShows considerable understanding of science concepts. Listens attentively in class and\nfollows directions independently. Encouraged to regularly check reasonableness of answers.\nTeacher requests an interview\n0\n44\n1\nCourse Title:\nCourse Code:\nTeacher:\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\nTeacher requests an interview\nCourse Title:\nCourse Code:\nTeacher:\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\nTeacher requests an interview\nCourse Title:\nCourse Code:\nTeacher:\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\nTeacher requests an interview\nCourse Title:\nCourse Code:\nTeacher:\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\nTeacher requests an interview\n83-0469E  (2010/01)      \u00a9 Queen's Printer for Ontario, 2010\nPage 2 of 4\n"
+      },
+      "3": {
+        "one_sentence_summary": "The document is a detailed report card for Easton David Olmstead, a 9th-grade student, covering multiple subjects and providing feedback on his academic performance and learning skills.",
+        "full_summary": [
+          "The report card pertains to Easton David Olmstead, a 9th-grade student at Maplewood S.S. under the Ottawa-Carleton District School Board.",
+          "It covers the 2024-2025 academic year, specifically the second semester, first term.",
+          "Easton's courses include Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, Mathematics, and Science.",
+          "Each course lists his percentage marks, course medians, and learning skills ratings.",
+          "Teachers provided comments on his strengths, areas for improvement, and requested interviews.",
+          "General learning skills categories include Responsibility, Independent Work, Initiative, Organization, Collaboration, and Self-Regulation.",
+          "Principal Krista Hudson signed the report, and it includes instructions for parents and students to retain the report."
+        ],
+        "topics": [
+          "Education",
+          "Student Performance",
+          "Learning Skills",
+          "Academic Assessment",
+          "Parental Involvement",
+          "Secondary Education"
+        ],
+        "keywords": [
+          "Easton David Olmstead",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Repertoire",
+          "Entrepreneurial Mindset",
+          "Canadian Geography",
+          "Mathematics",
+          "Science",
+          "Learning Skills",
+          "Responsibility",
+          "Organization",
+          "Self-Regulation",
+          "Principal Krista Hudson"
+        ],
+        "key_information": [
+          "Easton scored 78% in Repertoire, 82% in Building the Entrepreneurial Mindset, 88% in Exploring Canadian Geography, 79% in Mathematics, and 84% in Science.",
+          "Teachers highlighted strengths such as ensemble skills, positive attitude, creative thinking, and understanding of concepts.",
+          "Areas for improvement included regular practice, confidence in new learning situations, and reviewing rubric expectations.",
+          "Attendance records show minimal classes missed and lateness.",
+          "Teachers requested interviews for further discussion."
+        ],
+        "entities": [
+          "Easton David Olmstead",
+          "Krista Hudson",
+          "Kirsty Edwards",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Stittsville, ON",
+          "Nepean, ON",
+          "Ontario",
+          "Ministry of Education"
+        ],
+        "sentiment": "neutral",
+        "acronyms": {
+          "OEN": "Ontario Education Number",
+          "S.S.": "Secondary School",
+          "ESL/ELD": "English as a Second Language/English Literacy Development",
+          "IEP": "Individual Education Plan",
+          "SHSM": "Specialist High Skills Major",
+          "S2T1": "Semester 2, Term 1"
+        },
+        "chapter_or_section": "Provincial Report Card, Grades 9\u201312",
+        "noteworthy_sentences": [
+          "Easton demonstrates good large ensemble skills and collaborates effectively with his peers.",
+          "Easton is a very creative thinker who takes his time to complete tasks and evaluations properly.",
+          "Shows considerable understanding of science concepts."
+        ],
+        "token_count": 1000,
+        "visual_elements": "The document appears to be structured with tables listing courses, grades, and learning skills, along with sections for comments and signatures. It likely includes a form for parental response.",
+        "raw_text": "Learning Skills and Work Habits\nE \u2013 Excellent      G \u2013 Good      S \u2013 Satisfactory      N \u2013 Needs Improvement\nResponsibility\n \u2022 Fulfils responsibilities and commitments within the learning\n   environment.\n \u2022 Completes and submits class work, homework, and assignments\n   according to agreed-upon timelines.\n \u2022 Takes responsibility for and manages own behaviour.\nIndependent Work\n \u2022 Independently monitors, assesses, and revises plans to complete\n   tasks and meet goals.\n \u2022 Uses class time appropriately to complete tasks.\n \u2022 Follows instructions with minimal supervision.\nInitiative\n \u2022 Looks for and acts on new ideas and opportunities for learning.\n \u2022 Demonstrates the capacity for innovation and a willingness to\n   take risks.\n \u2022 Demonstrates curiosity and interest in learning.\n \u2022 Approaches new tasks with a positive attitude.\n \u2022 Recognizes and advocates appropriately for the rights of self and\n   others.\nOrganization\n \u2022 Devises and follows a plan and process for completing work and\n   tasks.\n \u2022 Establishes priorities and manages time to complete tasks and\n   achieve goals.\n \u2022 Identifies, gathers, evaluates, and uses information, technology,\n   and resources to complete tasks.\nCollaboration\n \u2022 Accepts various roles and an equitable share of work in a group.\n \u2022 Responds positively to the ideas, opinions, values, and traditions of\n   others.\n \u2022 Builds healthy peer-to-peer relationships through personal and\n   media-assisted interactions.\n \u2022 Works with others to resolve conflicts and build consensus to\n   achieve group goals.\n \u2022 Shares information, resources, and expertise, and promotes critical\n   thinking to solve problems and make decisions.\nSelf-Regulation\n \u2022 Sets own individual goals and monitors progress towards achieving\n   them.\n \u2022 Seeks clarification or assistance when needed.\n \u2022 Assesses and reflects critically on own strengths, needs, and\n   interests.\n \u2022 Identifies learning opportunities, choices, and strategies to meet\n   personal needs and achieve goals.\n \u2022 Perseveres and makes an effort when responding to challenges.\n(Please complete, sign, and detach the form below, and return it to your child's teacher.)\nStudent: Olmstead, Easton David\nOEN: 735-011-272\nGrade: 09\nHomeroom: 224\nStudent's Comments\n \u2022 My best work is:\n \u2022 My goal for improvement is:\nStudent's Signature: X\nParent's/Guardian's Response\nI have received this report card.\nI would like to discuss this report card.  Please contact me.\nParent's/Guardian's Name (please print):\nSignature:\nDate:\n X\nTelephone (day):\nTelephone (evening):\n83-0469E  (2010/01)      \u00a9 Queen's Printer for Ontario, 2010\nPage 3 of 4\n"
+      },
+      "1": {
+        "one_sentence_summary": "The report card provides detailed information on Easton Olmstead's academic performance and learning skills for the semester at Maplewood S.S.",
+        "full_summary": [
+          "The document is a Provincial Report Card for student Easton David Olmstead, in Grade 9, for the semester reporting period S2T1, dated April 28, 2025.",
+          "Easton is enrolled at Maplewood Secondary School, part of the Ottawa-Carleton District School Board.",
+          "Four courses are reported: Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, and Mathematics.",
+          "Grades and learning skills are provided for each course, with comments on strengths and areas for improvement.",
+          "Teachers for all courses have requested interviews.",
+          "The report includes attendance records for each course.",
+          "The document instructs that the report should be retained for reference and that it will be kept in the Ontario Student Record for five years after the student leaves school."
+        ],
+        "topics": [
+          "Education",
+          "Student Assessment",
+          "Learning Skills",
+          "High School Courses",
+          "Report Card",
+          "Ottawa-Carleton District School Board",
+          "Academic Performance",
+          "Ontario Education System",
+          "Attendance",
+          "Parental Guidance"
+        ],
+        "keywords": [
+          "Provincial Report Card",
+          "Easton Olmstead",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Learning Skills",
+          "Academic Performance",
+          "Repertoire",
+          "Entrepreneurial Mindset",
+          "Canadian Geography",
+          "Mathematics",
+          "Teacher Interview",
+          "Attendance",
+          "Ontario Student Record"
+        ],
+        "key_information": [
+          "Student name: Easton David Olmstead.",
+          "Report period: S2T1, April 28, 2025.",
+          "School: Maplewood S.S., part of Ottawa-Carleton District School Board.",
+          "Courses: Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, Mathematics.",
+          "Grades: 78 (Repertoire), 82 (Entrepreneurial Mindset), 88 (Geography), 79 (Mathematics).",
+          "Teachers for all courses have requested an interview.",
+          "Principal: Krista Hudson.",
+          "School Council Chair: Kirsty Edwards."
+        ],
+        "entities": [
+          "Easton David Olmstead",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Krista Hudson",
+          "Kirsty Edwards",
+          "Stittsville, ON",
+          "Ontario",
+          "April 28, 2025",
+          "Koenig, K.",
+          "Li, X.",
+          "Edwards, J.",
+          "Hang, V.",
+          "Ontario Student Record"
+        ],
+        "sentiment": "neutral",
+        "acronyms": {
+          "OEN": "Ontario Education Number",
+          "S.S.": "Secondary School",
+          "ESL": "English as a Second Language",
+          "ELD": "English Literacy Development",
+          "IEP": "Individual Education Plan",
+          "SHSM": "Specialist High Skills Major",
+          "G": "Good",
+          "E": "Excellent",
+          "S": "Satisfactory",
+          "OSR": "Ontario Student Record"
+        },
+        "chapter_or_section": "null",
+        "noteworthy_sentences": [
+          "Easton demonstrates good large ensemble skills and collaborates effectively with his peers.",
+          "Easton is encouraged to be more confident in his abilities, and to be patient with himself when running into difficulty completing work.",
+          "The original or an exact copy has been placed in the student's Ontario Student Record (OSR) folder and will be retained for five (5) years after the student leaves school."
+        ],
+        "token_count": 581,
+        "visual_elements": "The page contains structured tables detailing course information, grades, learning skills, and attendance. There are no images, charts, or complex visual elements.",
+        "raw_text": "Ministry of Education\nProvincial Report Card, Grades 9\u201312\nSemester\nReporting Period\nDate\n2024-2025\nS2T1\n4/28/2025\nSTUDENT:\nOEN:\nGrade:\nHomeroom:\nPrincipal:\nOlmstead, Easton David\n735-011-272\n09\n224\nHudson, Krista\nAddress:\nSchool Council Chair:\n777 Rosehill Avenue, Stittsville, ON K2S 0X2\nKirsty Edwards\nSCHOOL:\nTelephone:\nMaplewood S.S.\n6132701688\nBOARD:\nEmail/Website:\nOttawa-Carleton District School Board\n   www.ocdsb.ca\nAddress:\nFax:\n700 Cope Drive, Stittsville, ON K2S2P8\n6138313009\nAddress:\n133 Greenbank Road, Nepean, ON K2H6L3\nCourses\nReporting Period\nPercentage Mark\nCourse Median\nCredit Earned\nLearning Skills and Work Habits\nResponsibility\nOrganization\nIndependent Work\nCollaboration\nInitiative\nSelf-Regulation\nComments\nStrengths/Next Steps for Improvement\nAttendance\nClasses Missed\nTotal Classes\nTimes Late\nCourse Title: Repertoire\nCourse Code:AMR1O.-01\nTeacher:\nKoenig, K.\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\n78 91.0 0.0\nG\nG\nS\nG\nG\nE\nEaston demonstrates good large ensemble skills and collaborates effectively with his peers.\nAs a next step, Easton should establish a regular practice routine to prepare him to make the\nmost of rehearsal time.\nTeacher requests an interview\n2\n139\n0\nCourse Title: Building the Entrepreneurial\nMindset, Grade 9, Open\nCourse Code:BEM1O.-03\nTeacher:\nLi, X.\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\n82 77.0 0.0\nE\nE\nE\nE\nE\nE\nContinue to display positive attitude towards class activities and classmates. Encouraged to\napproach new learning situations with confidence. Seek enrichment opportunities.\nTeacher requests an interview\n1\n44\n0\nCourse Title: Exploring Canadian Geography,\nGrade 9, De-streamed\nCourse Code:CGC1W.-06\nTeacher:\nEdwards, J.\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\n88 75.0 0.0\nE\nG\nE\nG\nE\nG\nEaston is a very creative thinker who takes his time to complete tasks and evaluations\nproperly. Easton is encouraged to be more confident in his abilities, and to be patient with\nhimself when running into difficulty completing work. Easton should regularly review rubric\nexpectations before submitting work in order to provide himself the best opportunity to meet\nhis own high expectations.\nTeacher requests an interview\n1\n44\n1\nCourse Title: Mathematics, Grade 9\nCourse Code:MTH1W.-07\nTeacher:\nHang, V.\nESL/ELD\nFrench\nIEP\nSHSM\nFirst\nFinal\n79 77.0 0.0\nE\nG\nG\nG\nG\nG\nUnderstands mathematical concepts. Participates well in class. Continue to improve problem\nsolving skills.\nTeacher requests an interview\n0\n44\n1\nPrincipal's Signature\nKrista Hudson\n04/28/2025\nTo parents/guardians and students: This copy of the report should be kept for reference. The original or an exact copy has been\nplaced in the student's Ontario Student Record (OSR) folder and will be retained for five (5) years after the student leaves school.\nTo view provincial curriculum documents, visit the Ministry of Education's website: www.edu.gov.on.ca.\n83-0469E  (2010/01)      \u00a9 Queen's Printer for Ontario, 2010\nPage 1 of 4\n"
+      },
+      "4": {
+        "one_sentence_summary": "The document is a provincial report card for Easton David Olmstead, detailing his academic performance and learning skills for Semester 2, Term 1 of the 2024-2025 school year.",
+        "full_summary": [
+          "The report card is for Easton David Olmstead, a Grade 9 student at Maplewood Secondary School.",
+          "It includes detailed grades and comments for courses such as Repertoire, Building the Entrepreneurial Mindset, Exploring Canadian Geography, Mathematics, and Science.",
+          "Overall, Easton is performing well with percentage marks ranging from 78 to 88.",
+          "Learning skills and work habits are evaluated with grades like 'Excellent' and 'Good'.",
+          "Teachers have requested interviews to discuss Easton's progress.",
+          "The document explains how to interpret percentage marks and provides definitions for terms like ESL/ELD, IEP, and SHSM.",
+          "It includes contact information for the school and school board."
+        ],
+        "topics": [
+          "Education",
+          "Student Assessment",
+          "Report Card",
+          "Learning Skills",
+          "High School Curriculum",
+          "Parent-Teacher Communication",
+          "Academic Performance",
+          "School Administration",
+          "Student Development"
+        ],
+        "keywords": [
+          "Easton David Olmstead",
+          "Maplewood S.S.",
+          "Grades 9-12",
+          "Ottawa-Carleton District School Board",
+          "Learning Skills",
+          "Repertoire",
+          "Entrepreneurial Mindset",
+          "Canadian Geography",
+          "Mathematics",
+          "Science",
+          "Principal",
+          "Parent-Teacher Interview",
+          "Provincial Curriculum",
+          "IEP",
+          "SHSM"
+        ],
+        "key_information": [
+          "Easton's grades range from 78 to 88 across different subjects.",
+          "Learning skills are graded as Excellent (E) and Good (G).",
+          "Teachers have requested interviews for further discussion.",
+          "The report includes explanations for grade levels and achievement standards.",
+          "Contact information for the school and school board is provided.",
+          "The report card is part of the student's Ontario Student Record (OSR) which will be retained for five years."
+        ],
+        "entities": [
+          "Ministry of Education",
+          "Easton David Olmstead",
+          "Krista Hudson",
+          "Kirsty Edwards",
+          "Maplewood S.S.",
+          "Ottawa-Carleton District School Board",
+          "Stittsville, ON",
+          "Nepean, ON",
+          "Ontario",
+          "Teacher Koenig",
+          "Teacher Li",
+          "Teacher Edwards",
+          "Teacher Hang",
+          "Teacher Thivaharan",
+          "4/28/2025"
+        ],
+        "sentiment": "neutral",
+        "acronyms": {
+          "OEN": "Ontario Education Number",
+          "ESL/ELD": "English as a Second Language/English Literacy Development",
+          "IEP": "Individual Education Plan",
+          "SHSM": "Specialist High Skills Major"
+        },
+        "chapter_or_section": "Provincial Report Card, Grades 9\u201312",
+        "noteworthy_sentences": [
+          "Easton demonstrates good large ensemble skills and collaborates effectively with his peers.",
+          "Easton is encouraged to be more confident in his abilities, and to be patient with himself when running into difficulty completing work.",
+          "Shows considerable understanding of science concepts. Listens attentively in class and follows directions independently."
+        ],
+        "token_count": 1050,
+        "visual_elements": "The document includes structured tables listing courses, grades, comments, and learning skills assessments. There are no images, charts, or infographics present.",
+        "raw_text": "Student: Olmstead, Easton David\nOEN: 735-011-272\nGrade: 09\nHomeroom: 224\nPercentage\nMark\nAchievement of the Provincial Curriculum Expectations\n80\u2013100\nThe student has demonstrated the required knowledge and skills with a high degree of effectiveness.\nAchievement surpasses the provincial standard.  (Level 4)\n70\u201379\nThe student has demonstrated the required knowledge and skills with considerable effectiveness.\nAchievement meets the provincial standard.  (Level 3)\n60\u201369\nThe student has demonstrated the required knowledge and skills with some effectiveness.\nAchievement approaches the provincial standard.  (Level 2)\n50\u201359\nThe student has demonstrated the required knowledge and skills with limited effectiveness.\nAchievement falls much below the provincial standard.  (Level 1)\nBelow 50\nThe student has not demonstrated the required knowledge and skills. Extensive remediation is required.\nI\nInsufficient evidence to assign a percentage mark (for Grade 9 and 10 courses only)\nW\nThe student has withdrawn from the course.\nESL/ELD \u2013 Achievement is based on expectations modified from the curriculum expectations for the course to support English\nlanguage learning needs.\nIEP \u2013 Individual Education Plan\nFRENCH \u2013 The student receives instruction in French for the course.\nSHSM \u2013 Specialist High Skills Major (for Grade 11 and 12 courses only)\nCourse Median  \u2013 The median is the percentage mark at which 50 per cent of the students in the course have a higher\npercentage mark and 50 per cent of the students have a lower percentage mark.\n83-0469E  (2010/01)      \u00a9 Queen's Printer for Ontario, 2010\nPage 4 of 4\n"
+      }
+    }
+  },
+  "temp_file_path": "C:\\Users\\BRETTO~1\\AppData\\Local\\Temp\\tmpm21awz_l.pdf",
+  "extraction_model": "gpt-4o"
+}

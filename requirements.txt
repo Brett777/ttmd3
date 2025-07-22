@@ -1,0 +1,33 @@
+# Core application dependencies
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+datarobot-drum
+httpx
+python-multipart
+aiofiles
+
+# LiteLLM and AI dependencies
+litellm
+openai
+yfinance
+pytz
+
+# RAG-Ultra SDK and document processing
+rag-ultra
+PyPDF2
+pymupdf
+python-docx
+python-pptx
+Pillow
+pdf2image
+unstructured
+beautifulsoup4
+lark
+tiktoken
+langchain
+langchain-openai
+
+# Data connectors
+snowflake-connector-python 
