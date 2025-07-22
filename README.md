@@ -1,14 +1,25 @@
 # Agentic Chat Application
 
-A reference template for building LLM-powered, tool-calling chat applications on the DataRobot Custom Applications platform.
+A comprehensive AI-powered chat application with multi-modal capabilities, document analysis, and data exploration features. Built for the DataRobot Custom Applications platform with support for multiple LLM providers and advanced tool-calling capabilities.
 
 ## ✨ Features
 
-* React 18 + Vite frontend styled with **Chakra UI** & **TailwindCSS**
-* Python 3.11 **FastAPI** backend with **LiteLLM** function-calling agent
-* Built-in tools:
-  * `get_weather(location)` – Nominatim + Open-Meteo
-  * `get_stock_price(ticker)` – Yahoo Finance via *yfinance*
+* **Multi-Modal Chat Interface** - React 18 + Vite frontend with **TailwindCSS** & **Chakra UI** components
+* **Advanced AI Backend** - Python 3.11 **FastAPI** with **LiteLLM** for multi-provider support
+* **Document Intelligence** - RAG-Ultra powered document processing with real-time analysis
+* **Data Exploration** - "Talk to My Data" feature with SQL generation and DuckDB-WASM
+* **Built-in Tools**:
+  * `get_weather(location)` – Real-time weather data
+  * `get_stock_price(ticker)` – Live stock information via Yahoo Finance
+  * `search_the_web(query)` – Web search capabilities
+  * `current_date_and_time()` – Time and date information
+  * `analyze_documents(query)` – RAG-powered document analysis
+  * `talk_to_data(query)` – SQL generation for structured data
+* **Multi-Provider LLM Support** - OpenAI, Anthropic, Google, xAI, Cohere, DeepSeek, and more
+* **DataRobot Integration** - Direct Agent deployment connectivity
+* **Real-time Streaming** - Live response streaming for enhanced UX
+* **Session Management** - Persistent conversation state and document storage
+* **Database Connectors** - Snowflake integration for live data analysis
 * Runtime-parameter integration for provider API keys (see `metadata.yaml`)
 * Ready-to-deploy in DataRobot or run locally for development
 
@@ -53,6 +64,13 @@ ANTHROPIC_API_KEY=...
 XAI_API_KEY=...
 COHERE_API_KEY=...
 DEEPSEEK_API_KEY=...
+PERPLEXITYAI_API_KEY=...
+GEMINI_API_KEY=...
+HUGGINGFACE_API_KEY=...
+
+# DataRobot Integration (optional)
+DATAROBOT_API_TOKEN=...
+DATAROBOT_AGENT_DEPLOYMENT_ID=...
 ```
 
 > The backend automatically loads `.env` via **python-dotenv**.
@@ -64,7 +82,7 @@ cd frontend
 npm install
 ```
 
-This installs React, Chakra UI, TailwindCSS, Vite, etc.
+This installs React, TailwindCSS, Chakra UI, DuckDB-WASM, Chart.js, and other dependencies.
 
 ### 5. Running the Services
 
@@ -92,8 +110,11 @@ npm run dev -- --port 5173
 ### 6. Quick Test
 
 1.  Open the browser at `http://localhost:5173`.
-2.  Send a message like "What's the weather in Paris?".
-3.  Observe tool-calling in the FastAPI console & response in the UI.
+2.  Try different features:
+    - **Chat**: Send a message like "What's the weather in Paris?"
+    - **Documents**: Upload a PDF and ask questions about it
+    - **Data Analysis**: Upload a CSV and ask "Show me the top 5 products by revenue"
+3.  Observe tool-calling in the FastAPI console & responses in the UI.
 
 ---
 
@@ -113,16 +134,19 @@ This mimics the runtime inside the DataRobot container.
 ## 📂 Project Structure
 
 ```text
-├── backend/           # FastAPI app (main.py, tools)
+├── backend/           # FastAPI app (main.py, tools, RAG integration)
 ├── frontend/          # React + Vite frontend
 │   ├── public/
 │   └── src/
+│       ├── components/    # UI components (chat, documents, data analysis)
+│       ├── services/      # API clients
+│       ├── contexts/      # React context providers
+│       └── hooks/         # Custom React hooks
 ├── build-app.sh       # Build script (Python + Node deps, React build)
 ├── start-app.sh       # Start script (uvicorn)
-├── Dockerfile         # Container definition
-├── requirements.txt   # Python deps
+├── requirements.txt   # Python deps (FastAPI, LiteLLM, RAG-Ultra, etc.)
 ├── metadata.yaml      # DataRobot RuntimeParameters
-└── application-plan.html  # Detailed technical plan
+└── plan/              # Detailed technical documentation
 ```
 
 ---
@@ -134,6 +158,7 @@ This mimics the runtime inside the DataRobot container.
 | Run backend tests (if added) | `pytest` |
 | Lint python (optional) | `ruff check backend` |
 | Rebuild Tailwind styles | Handled automatically by Vite |
+| Check API documentation | Visit `http://localhost:8080/docs` |
 
 ---
 
